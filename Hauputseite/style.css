@@ -50,7 +50,6 @@ html, body {
     overflow-x: hidden; /* Horizontale Scrollleiste */
     overflow-y: auto; /* Kein vertikales Scrollen */
     scrollbar-gutter: stable;
-    
 }
 
 /* Boxen */
@@ -59,7 +58,7 @@ html, body {
     height: 55%;
     background: #111;
     margin: 8px;
-    border-radius: 18px;
+    border-radius: 20px;
 
     display: flex;
     flex-direction: column;
@@ -72,14 +71,39 @@ html, body {
     flex: 0 0 38vw; /* Box1 hat 50% der Breite des Viewports */
     height: 55%;
     background: #111;
-    padding: 40px;
-    border-radius: 18px;
-    margin: 0 8px 0 75px;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 0 -22px 0 75px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.box1 a{
+    color: #fff;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+}
+
+.box1 a:active{
+    color: #fff;
+    text-decoration: none;
+}
+
+.box1 .top{
+    display: grid;
+    margin: 5px 10px;
+}
+
+.box1 .top h4 p{
+    display: flex;
+    flex-direction: column;
+
 }
 
 .box1 .top img {
-    width: 120px;
-    height: 120px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     border: 2px solid white;
 }
@@ -89,27 +113,34 @@ html, body {
     margin-top: 15px;
 }
 
-.box1 .top{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
+.box1 .mid {
+    margin: 30px 30px 0 10px;
 }
 
-.box1 .mid {
-    margin-top: 20px;
+.box1 .mid img {
+    display: none;
+    position: absolute;
+    left: 30%;
+    padding-bottom: 110px;
+    height: 300px;
+    z-index: 0;
 }
 
 .box1 .mid h2 {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     line-height: 1.5;
     color: #ddd;
+    font-family: "Host Grotesk", serif;
+    font-weight: 400;
+    z-index: 1;
 }
 
 .box1 .bot {
-    margin-top: auto;
+    margin-top: 110px;
+    margin-left: 10px;
     font-size: 0.9rem;
     color: #bbb;
+    z-index: 1;
 }
 
 /* ========== */
@@ -117,13 +148,76 @@ html, body {
 /* ===== Inhalt von Box2 ===== */
 
 .box2 {
-    flex: 0 0 23vw; /* Box1 hat 50% der Breite des Viewports */
-    height: 55%;
+    flex: 0 0 25vw; /* Box1 hat 50% der Breite des Viewports */
+    height: 63.5%;
     padding: 40px;
-    border-radius: 18px;
+
+    /*display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;*/
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 15px;
+}
+
+.case {
+    background-color: #111;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.text {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+}
+
+.text .username {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.text .followers {
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+/* Full-width email box */
+.email-box {
+    grid-column: 1 / -1;
+    justify-content: center;
+    background-color: #111;
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+/* Anpassung für große Boxen */
+.large_box {
+    grid-row: span 2; /* Box nimmt die Höhe von zwei Zeilen ein */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* ========== */
@@ -132,19 +226,83 @@ html, body {
 
 .box3{
     flex: 0 0 18vw; /* Box1 hat 50% der Breite des Viewports */
+    margin-left: -22px;
 }
 
 .box3 img{
     height: 100%;
     width: 100%;
-    border-radius: 18px;
+    border-radius: 20px;
 }
 
 /* ===== Inhalt von Box4 ===== */
 
-.box4{
-    flex: 0 0 34vw;
+/*.box4{
+    display: flex;
+    flex-direction: column; /* Elemente werden vertikal gestapelt */
+    /*justify-content: space-between; /* Verteilt den freien Raum zwischen den Elementen */
+    /*flex: 0 0 34vw;
+    height: 54%;
+    overflow: hidden; /* Verhindert das Überschreiten des Rands*/
+/*}/*
+
+.box4 .wrapper{
+    height: 10%;
 }
+
+.box4 .wrapper:first-child,
+.box4 .wrapper:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.box4 img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover; /* Passt das Bild proportional an, ohne den Rand zu überschreiten */
+    /*display: block; /* Entfernt unnötige Leerstellen */
+/*}
+
+.box4 .full_width{
+    height: 30%;
+}
+
+.box4 .line{
+    height: 20%;
+}
+*/
+
+/* Ich komm absolut nicht weiter es ist schon wieder 22:03 Uhr. Oben das ist der Ursprüngliche Code mit alles Untereinander (Ich könnte Gemini vlt da nochmal Fragen 
+wie das ist wenn ich für die oberen beiden Boxen noch einen Container einfüge. Unten das ist der Code wie er gerade zu sehen ist, du siehst es ja und naja was soll
+ich dazu noch sagen... In HTML ist es übrigens genauso */
+.box4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 0 0 34vw;
+  height: 54%;
+  overflow: hidden;
+}
+
+.box4 .wrapper {
+  height: 10%;
+}
+
+.box4 .wrapper:first-child,
+.box4 .wrapper:nth-child(2) {
+  flex: 1; /* Gleichmäßige Verteilung des freien Raums */
+}
+
+.box4 .wrapper:first-child,
+.box4 .wrapper:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; /* Oder space-between, je nach gewünschtem Abstand */
+}
+
+/* Rest des CSS bleibt unverändert */
 
 /* ===== Inhalt von Box5 ===== */
 
@@ -155,7 +313,7 @@ html, body {
 .box5 img{
     height: 100%;
     width: 100%;
-    border-radius: 18px;
+    border-radius: 20px;
 }
 
 /* ========== */
@@ -172,6 +330,16 @@ html, body {
 
 .box7{
     flex: 0 0 18vw; /* Box1 hat 50% der Breite des Viewports */
+}
+
+.box7 .lite{
+    background-color: #111;
+    border-radius: 20px;
+    padding: 38px;
+    margin: 15px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 /* ========== */
@@ -217,7 +385,15 @@ html, body {
     }
 
     .box2{
-        width: 100%;
-        margin: 20px;
+        grid-template-columns: 1fr;
+        margin-bottom: 220px;
+    }
+
+    .email-box {
+        grid-column: auto;
+    }
+
+    .bottom-box {
+        grid-template-columns: 1fr;
     }
 }
