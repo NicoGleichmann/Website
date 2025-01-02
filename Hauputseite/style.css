@@ -76,6 +76,10 @@ html, body {
     margin: 0 -22px 0 75px;
     color: #fff;
     cursor: pointer;
+    border: 1px solid #fff;
+    
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .box1 a{
@@ -169,6 +173,8 @@ html, body {
     align-items: center;
     justify-content: flex-start;
     gap: 15px;
+    border: 1px solid #fff;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .icon {
@@ -210,6 +216,8 @@ html, body {
     font-size: 1rem;
     font-weight: 500;
     color: #fff;
+    border: 1px solid #fff;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 /* Anpassung für große Boxen */
@@ -227,6 +235,8 @@ html, body {
 .box3{
     flex: 0 0 18vw; /* Box1 hat 50% der Breite des Viewports */
     margin-left: -22px;
+    border: 1px solid #fff;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .box3 img{
@@ -237,24 +247,15 @@ html, body {
 
 /* ===== Inhalt von Box4 ===== */
 
-/*.box4{
+.box4{
     display: flex;
     flex-direction: column; /* Elemente werden vertikal gestapelt */
-    /*justify-content: space-between; /* Verteilt den freien Raum zwischen den Elementen */
-    /*flex: 0 0 34vw;
-    height: 54%;
-    overflow: hidden; /* Verhindert das Überschreiten des Rands*/
-/*}/*
-
-.box4 .wrapper{
-    height: 10%;
-}
-
-.box4 .wrapper:first-child,
-.box4 .wrapper:nth-child(2) {
-    display: flex;
-    flex-direction: row;
-    
+    justify-content: space-between; /* Verteilt den freien Raum zwischen den Elementen */
+    flex: 0 0 34vw;
+    height: 53.7%;
+    margin: 0 11px;
+    margin-bottom: 8px;
+    gap: 18px;
 }
 
 .box4 img{
@@ -262,52 +263,34 @@ html, body {
     height: 100%;
     border-radius: 20px;
     object-fit: cover; /* Passt das Bild proportional an, ohne den Rand zu überschreiten */
-    /*display: block; /* Entfernt unnötige Leerstellen */
-/*}
+    border: 1px solid #fff;
+}
+
+.box4 .box_top{
+    height: 40%;
+}
+
+.box_top{
+    display: flex;
+    flex-direction: row;
+    gap: 17px;
+}
 
 .box4 .full_width{
-    height: 30%;
+    height: 35%;
 }
 
 .box4 .line{
     height: 20%;
 }
-*/
 
-/* Ich komm absolut nicht weiter es ist schon wieder 22:03 Uhr. Oben das ist der Ursprüngliche Code mit alles Untereinander (Ich könnte Gemini vlt da nochmal Fragen 
-wie das ist wenn ich für die oberen beiden Boxen noch einen Container einfüge. Unten das ist der Code wie er gerade zu sehen ist, du siehst es ja und naja was soll
-ich dazu noch sagen... In HTML ist es übrigens genauso */
-.box4 {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 0 0 34vw;
-  height: 54%;
-  overflow: hidden;
-}
-
-.box4 .wrapper {
-  height: 10%;
-}
-
-.box4 .wrapper:first-child,
-.box4 .wrapper:nth-child(2) {
-  flex: 1; /* Gleichmäßige Verteilung des freien Raums */
-}
-
-.box4 .wrapper:first-child,
-.box4 .wrapper:nth-child(2) {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around; /* Oder space-between, je nach gewünschtem Abstand */
-}
-
-/* Rest des CSS bleibt unverändert */
+/* ========== */
 
 /* ===== Inhalt von Box5 ===== */
 
 .box5{
     flex: 0 0 18vw; /* Box1 hat 50% der Breite des Viewports */
+    border: 1px solid #fff;
 }
 
 .box5 img{
@@ -322,7 +305,78 @@ ich dazu noch sagen... In HTML ist es übrigens genauso */
 
 .box6{
     flex: 0 0 23vw; /* Box1 hat 50% der Breite des Viewports */
+    border: 1px solid #fff;
+    margin: 0 10px;
 }
+
+/* Allgemeiner Container */
+.post-container {
+    background-color: #000;
+    border-radius: 20px;
+    width: 350px;
+    padding: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+  
+/* Header mit Instagram-Icon */
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+  
+.header .icon {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+  
+/* Bildcontainer */
+.image-container {
+    width: 100%;
+    overflow: hidden;
+}
+  
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  
+/* Punkte unter dem Bild */
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px 0;
+}
+  
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: gray;
+    border-radius: 50%;
+}
+  
+.dot.active {
+    background-color: white;
+}
+  
+/* Footer mit Text */
+.lower_section {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+  
 
 /* ========== */
 
@@ -335,11 +389,12 @@ ich dazu noch sagen... In HTML ist es übrigens genauso */
 .box7 .lite{
     background-color: #111;
     border-radius: 20px;
-    padding: 38px;
-    margin: 15px;
+    padding: 35.8px;
+    margin: 12px 12px 12px 8px;
 
     display: flex;
     flex-direction: column;
+    border: 1px solid #fff;
 }
 
 /* ========== */
@@ -349,6 +404,7 @@ ich dazu noch sagen... In HTML ist es übrigens genauso */
 .box8{
     flex: 0 0 12vw; /* Box1 hat 50% der Breite des Viewports */
     margin: 0 500px 0 8px;
+    border: 1px solid #fff;
 }
 
 /* ========== */ 
@@ -358,13 +414,54 @@ ich dazu noch sagen... In HTML ist es übrigens genauso */
     position: fixed;
     bottom: 0;
     left: 0;
+
     width: 100%;
     text-align: center;
     padding: 10px;
+    margin-bottom: 10px;
+
     color: #fff;
     font-size: 0.9rem;
-    margin-bottom: 10px;
 }
+
+.footer a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.footer a:active{
+    color: #fff;
+}
+
+.hover-effect {
+    display: inline-block; /* Damit der Effekt genau unter dem Wort bleibt */
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem; /* Anpassen je nach Bedarf */
+    cursor: pointer;
+    transition: color 0.3s ease; /* Optional: Textfarbe weich ändern */
+}
+  
+.hover-effect::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Abstand unter dem Text */
+    width: 0;
+    height: 2px; /* Dicke des Unterstrichs */
+    background-color: white;
+    transition: width 0.3s ease; /* Animation des Unterstrichs */
+}
+  
+.hover-effect:hover::after {
+    width: 100%; /* Unterstrich wird komplett angezeigt */
+} 
 
 
 /* ===== Responsive */
