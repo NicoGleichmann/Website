@@ -77,8 +77,6 @@ html, body {
     color: #fff;
     cursor: pointer;
     border: 1px solid #fff;
-    
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
@@ -236,13 +234,15 @@ html, body {
     flex: 0 0 18vw; /* Box1 hat 50% der Breite des Viewports */
     margin-left: -22px;
     border: 1px solid #fff;
-    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 0 8px rgba(255, 255, 255, 1);
+    overflow: hidden; /* Verhindert, dass das Bild über den Rahmen hinausragt */
 }
 
 .box3 img{
-    height: 100%;
-    width: 100%;
-    border-radius: 20px;
+    height: 95%;
+    width: 94%;
+    border-radius: 5px;
+    margin-left: 10px;
 }
 
 /* ===== Inhalt von Box4 ===== */
@@ -250,21 +250,14 @@ html, body {
 .box4{
     display: flex;
     flex-direction: column; /* Elemente werden vertikal gestapelt */
-    justify-content: space-between; /* Verteilt den freien Raum zwischen den Elementen */
+
     flex: 0 0 34vw;
-    height: 53.7%;
+    height: 54.7%;
     margin: 0 11px;
-    margin-bottom: 8px;
     gap: 18px;
 }
 
-.box4 img{
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    object-fit: cover; /* Passt das Bild proportional an, ohne den Rand zu überschreiten */
-    border: 1px solid #fff;
-}
+
 
 .box4 .box_top{
     height: 40%;
@@ -276,12 +269,44 @@ html, body {
     gap: 17px;
 }
 
-.box4 .full_width{
-    height: 35%;
+.box_top img{
+    width: 90%;
+    height: 100%;
+    border-radius: 20px;
+    border: 1px solid #fff;
 }
 
-.box4 .line{
+.box_top .first{
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 1);
+}
+
+.box_top .second{
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 1);
+}
+
+.box4 .full_width{
+    height: 35%;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 1);
+}
+
+.box4 .line01{
     height: 20%;
+}
+
+.box4 .line01 img{
+    height: 77%;
+    width: 97%;
+    margin: 12px 0 0 10px;
+    border-radius: 7px;
+}
+
+.box4 .line02 img{
+    height: 87.5%;
+    width: 97%;
+    margin: 10.5px 0 0 10px;
+    border-radius: 7px;
 }
 
 /* ========== */
@@ -291,12 +316,14 @@ html, body {
 .box5{
     flex: 0 0 18vw; /* Box1 hat 50% der Breite des Viewports */
     border: 1px solid #fff;
+    box-shadow: inset 0 0 8px rgba(255, 255, 255, 1);
 }
 
 .box5 img{
-    height: 100%;
-    width: 100%;
-    border-radius: 20px;
+    height: 96%;
+    width: 94%;
+    border-radius: 5px;
+    margin-left: 10px;
 }
 
 /* ========== */
@@ -311,7 +338,7 @@ html, body {
 
 /* Allgemeiner Container */
 .post-container {
-    background-color: #000;
+    background-color: #111;
     border-radius: 20px;
     width: 350px;
     padding: 10px;
@@ -321,6 +348,7 @@ html, body {
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 1);
 }
   
 /* Header mit Instagram-Icon */
@@ -334,12 +362,15 @@ html, body {
     width: 30px;
     height: 30px;
     margin: 10px;
+    margin-bottom: 13px;
 }
   
 /* Bildcontainer */
 .image-container {
     width: 100%;
+    height: 75%;
     overflow: hidden;
+    cursor: grab;
 }
   
 .image-container img {
@@ -389,12 +420,14 @@ html, body {
 .box7 .lite{
     background-color: #111;
     border-radius: 20px;
-    padding: 35.8px;
+    padding: 37.1px;
     margin: 12px 12px 12px 8px;
 
     display: flex;
     flex-direction: column;
     border: 1px solid #fff;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+
 }
 
 /* ========== */
@@ -405,6 +438,7 @@ html, body {
     flex: 0 0 12vw; /* Box1 hat 50% der Breite des Viewports */
     margin: 0 500px 0 8px;
     border: 1px solid #fff;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 /* ========== */ 
