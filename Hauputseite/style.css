@@ -13,7 +13,10 @@ html, body {
     height: 100%;
     scroll-behavior: smooth; /* Sanftes Scrollen */
     font-family: "Poppins", serif;
-    background: #030303; /* Dunkler Hintergrund */
+    /*background: #030303; /* Dunkler Hintergrund */
+    background: linear-gradient(270deg,#9b9494, #000); /* von schwarz zu weiss */
+    /*background: linear-gradient(90deg, #232323, #e5e5e5);*/ /* Heller Grauer Hintergrund */
+    /*background: linear-gradient(180deg, #000000, #4a5c6b);*/ /* Dunkelblau zu Hellblau */
     color: #ffffff; /* Weißer Text */
 
     display: flex;
