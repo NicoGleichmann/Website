@@ -15,12 +15,12 @@ html, body {
     font-family: "Poppins", serif;
     background: #030303; /* Dunkler Hintergrund */
     color: #ffffff; /* Weißer Text */
-    overflow: hidden; /* Verhindert vertikales Scrollen */
 
     display: flex;
     align-items: center; /* Vertikale Zentrierung */
     justify-content: center; /* Horizontale Zentrierung */
 }
+
 
 /* ========== */
 
@@ -35,21 +35,34 @@ html, body {
     font-size: 24px;
     cursor: pointer;
     z-index: 10;
-
     overflow: auto;
-    scrollbar-gutter: stable;
 }
 
 /* Hauptcontainer für horizontale Anordnung */
 .main.container {
     display: flex;
     align-items: center;    
-    flex-direction: row;
-    height: 100vh; /* Höhe der Boxen mittig im Viewport */
-    width: auto; /* Breite passt sich an Inhalt an */
-    overflow-x: hidden; /* Horizontale Scrollleiste */
-    overflow-y: auto; /* Kein vertikales Scrollen */
-    scrollbar-gutter: stable;
+    flex-direction: row; 
+    height: 100vh;
+    width: auto;
+    overflow-x: auto; /* Nur eine Scrollbar-Definition */
+    overflow-y: hidden; /* Verhindert vertikales Scrollen */
+    scrollbar-width: thin;  /* Für Firefox */
+}
+
+/* Webkit Scrollbar Styling (Chrome, Safari, Edge) */
+.main.container::-webkit-scrollbar {
+    width: 8px;         /* Breite statt Höhe für vertikale Scrollbar */
+    background: #f1f1f1;
+}
+
+.main.container::-webkit-scrollbar-thumb {
+    background: #000000;
+    border-radius: 4px;
+}
+
+.main.container::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 /* Boxen */
@@ -78,6 +91,12 @@ html, body {
     cursor: pointer;
     border: 1px solid #fff;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+    transition: background-color 0.4s ease-in-out; /* Übergangseffekt für den Farbwechsel */
+}
+
+.box1:hover{
+    cursor: pointer;
+    background: #1f1e1e;
 }
 
 .box1 a{
@@ -173,6 +192,12 @@ html, body {
     gap: 15px;
     border: 1px solid #fff;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+    transition: background-color 0.4s ease-in-out; /* Übergangseffekt für den Farbwechsel */
+}
+
+.case:hover{
+    cursor: pointer;
+    background: #1f1e1e;
 }
 
 .icon {
@@ -210,12 +235,19 @@ html, body {
     background-color: #111;
     border-radius: 20px;
     padding: 15px;
+    padding-top: 20px;
     text-align: center;
     font-size: 1rem;
     font-weight: 500;
     color: #fff;
     border: 1px solid #fff;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+    transition: background-color 0.4s ease-in-out; /* Übergangseffekt für den Farbwechsel */
+}
+
+.email-box:hover{
+    cursor: pointer;
+    background: #1f1e1e;
 }
 
 /* Anpassung für große Boxen */
@@ -245,6 +277,10 @@ html, body {
     margin-left: 10px;
 }
 
+.box3 img:hover{
+    border: 3px solid #1f1e1e;
+}
+
 /* ===== Inhalt von Box4 ===== */
 
 .box4{
@@ -270,7 +306,7 @@ html, body {
 }
 
 .box_top img{
-    width: 90%;
+    width: 100%;
     height: 100%;
     border-radius: 20px;
     border: 1px solid #fff;
@@ -278,6 +314,11 @@ html, body {
 
 .box_top .first{
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 1);
+}
+
+.box_top .first img{
+    height: 80%;
+    width: 80%;
 }
 
 .box_top .second{
@@ -317,6 +358,7 @@ html, body {
     flex: 0 0 18vw; /* Box1 hat 50% der Breite des Viewports */
     border: 1px solid #fff;
     box-shadow: inset 0 0 8px rgba(255, 255, 255, 1);
+    transition: background-color 0.4s ease-in-out; /* Übergangseffekt für den Farbwechsel */
 }
 
 .box5 img{
@@ -324,6 +366,10 @@ html, body {
     width: 94%;
     border-radius: 5px;
     margin-left: 10px;
+}
+
+.box5 img:hover{
+    border: 3px solid #1f1e1e;
 }
 
 /* ========== */
@@ -349,8 +395,13 @@ html, body {
     justify-content: space-between;
     overflow: hidden;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 1);
+    transition: background-color 0.4s ease-in-out; /* Übergangseffekt für den Farbwechsel */
 }
   
+.post-container:hover{
+    background: #1f1e1e;
+}
+
 /* Header mit Instagram-Icon */
 .header {
     width: 100%;
@@ -427,7 +478,12 @@ html, body {
     flex-direction: column;
     border: 1px solid #fff;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+    transition: background-color 0.4s ease-in-out; /* Übergangseffekt für den Farbwechsel */
+}
 
+.box7 .lite:hover{
+    cursor: pointer;
+    background: #1f1e1e;
 }
 
 /* ========== */
@@ -439,6 +495,12 @@ html, body {
     margin: 0 500px 0 8px;
     border: 1px solid #fff;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+    transition: background-color 0.4s ease-in-out; /* Übergangseffekt für den Farbwechsel */
+}
+
+.box8:hover{
+    cursor: pointer;
+    background: #1f1e1e;
 }
 
 /* ========== */ 
@@ -528,3 +590,4 @@ html, body {
         grid-template-columns: 1fr;
     }
 }
+

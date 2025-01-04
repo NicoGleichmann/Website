@@ -25,3 +25,9 @@ window.addEventListener('wheel', (e) => {
     }
 })
 
+
+// alert("Nutze das Mausrad zum scrollen!");
+
+
+
+
