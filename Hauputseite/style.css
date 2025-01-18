@@ -27,6 +27,7 @@ html, body {
 
 /* ========== */
 
+/* ===== Dark Mode Button ===== */
 .theme-button {
     position: fixed;
     top: 10px;
@@ -40,6 +41,8 @@ html, body {
     z-index: 10;
     overflow: auto;
 }
+
+/* ========== */
 
 /* Hauptcontainer für horizontale Anordnung */
 .main.container {
@@ -55,7 +58,7 @@ html, body {
 
 /* Webkit Scrollbar Styling (Chrome, Safari, Edge) */
 .main.container::-webkit-scrollbar {
-    width: 8px;         /* Breite statt Höhe für vertikale Scrollbar */
+    width: 100%;         /* Breite statt Höhe für vertikale Scrollbar */
     background: #f1f1f1;
 }
 
@@ -291,12 +294,15 @@ html, body {
     flex-direction: column; /* Elemente werden vertikal gestapelt */
 
     flex: 0 0 34vw;
-    height: 54.7%;
-    margin: 0 11px;
-    gap: 18px;
+    height: 54.2%;
+    margin: 0 10px;
+    margin-bottom: 5px;
+    gap: 15px;
 }
 
-
+.box4 img:hover{
+    border: 3px solid #1f1e1e;
+}
 
 .box4 .box_top{
     height: 40%;
@@ -332,7 +338,7 @@ html, body {
     height: 35%;
     width: 100%;
     border-radius: 20px;
-    box-shadow: inset 0 0 10px rgba(255, 255, 255, 1);
+    box-shadow: inset 0 0 12px rgba(255, 255, 255, 1);
 }
 
 .box4 .line01{
@@ -340,9 +346,9 @@ html, body {
 }
 
 .box4 .line01 img{
-    height: 77%;
+    height: 78%;
     width: 97%;
-    margin: 12px 0 0 10px;
+    margin: 10px 0 0 10px;
     border-radius: 7px;
 }
 
@@ -474,7 +480,8 @@ html, body {
 .box7 .lite{
     background-color: #111;
     border-radius: 20px;
-    padding: 37.1px;
+    padding: 30px;
+    height: 157px;
     margin: 12px 12px 12px 8px;
 
     display: flex;
@@ -508,59 +515,133 @@ html, body {
 
 /* ========== */ 
 
+
+
+
+
+/* Footer */
 /* Footer */
 .footer {
     position: fixed;
     bottom: 0;
     left: 0;
-
     width: 100%;
     text-align: center;
     padding: 10px;
     margin-bottom: 10px;
-
     color: #fff;
     font-size: 0.9rem;
 }
 
-.footer a{
+.footer a {
     color: #fff;
     text-decoration: none;
 }
 
-.footer a:hover{
+.footer a:hover {
     cursor: pointer;
     text-decoration: underline;
 }
 
-.footer a:active{
+.footer a:active {
     color: #fff;
 }
 
+/* Hover-Effekt */
 .hover-effect {
-    display: inline-block; /* Damit der Effekt genau unter dem Wort bleibt */
+    display: inline-block;
     position: relative;
     color: white;
     text-decoration: none;
-    font-size: 0.9rem; /* Anpassen je nach Bedarf */
+    font-size: 0.9rem;
     cursor: pointer;
-    transition: color 0.3s ease; /* Optional: Textfarbe weich ändern */
+    transition: color 3s ease;
 }
-  
+
 .hover-effect::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -3px; /* Abstand unter dem Text */
+    bottom: -3px;
     width: 0;
-    height: 2px; /* Dicke des Unterstrichs */
+    height: 2px;
     background-color: white;
-    transition: width 0.3s ease; /* Animation des Unterstrichs */
+    transition: width 0.6s ease;
 }
-  
+
 .hover-effect:hover::after {
-    width: 100%; /* Unterstrich wird komplett angezeigt */
-} 
+    width: 100%;
+}
+
+/* Info-Container */
+.info-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Info-Dropdown */
+.info-dropdown {
+    display: none; /* Standardmäßig versteckt */
+    position: absolute;
+    bottom: 100%; /* Zeige die Box oberhalb */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    text-align: center;
+    min-width: 150px;
+    box-shadow: inset 0 0 8px rgba(255, 255, 255, 1);
+}
+
+/* Dropdown-Link */
+.info-dropdown a {
+    display: block;
+    margin: 5px 0;
+    color: #fff;
+    text-decoration: none;
+}
+
+.info-dropdown a:hover {
+    text-decoration: underline;
+}
+
+/* Verbindungslinie */
+.info-dropdown hr {
+    margin: 0;
+    border: 0;
+    height: 2px;
+    background-color: white;
+    width: 80%; /* Passe die Breite an */
+    margin-bottom: 10px; /* Abstand zwischen Strich und Links */
+}
+
+/* Dropdown anzeigen beim Hover */
+.info-container:hover .info-dropdown {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .footer {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+    
+    .info-dropdown {
+        min-width: 120px;
+        font-size: 0.8rem;
+    }
+}
+
+
+
+
 
 
 /* ===== Responsive */
