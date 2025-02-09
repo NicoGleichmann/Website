@@ -8,6 +8,7 @@
     box-sizing: border-box;
 }
 
+
 html, body {
     width: 100%;
     height: 100%;
@@ -39,7 +40,7 @@ html, body {
     font-size: 24px;
     cursor: pointer;
     z-index: 10;
-    overflow: auto;
+    overflow: auto;   
 }
 
 /* ========== */
@@ -338,7 +339,8 @@ html, body {
     height: 35%;
     width: 100%;
     border-radius: 20px;
-    box-shadow: inset 0 0 12px rgba(255, 255, 255, 1);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 1);
+    border: 1px solid #fff;
 }
 
 .box4 .line01{
@@ -481,7 +483,7 @@ html, body {
     background-color: #111;
     border-radius: 20px;
     padding: 30px;
-    height: 157px;
+    height: 165.5px;
     margin: 12px 12px 12px 8px;
 
     display: flex;
@@ -548,29 +550,9 @@ html, body {
 }
 
 /* Hover-Effekt */
-.hover-effect {
-    display: inline-block;
-    position: relative;
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: color 3s ease;
-}
 
-.hover-effect::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0;
-    height: 2px;
-    background-color: white;
-    transition: width 0.6s ease;
-}
-
-.hover-effect:hover::after {
-    width: 100%;
+#instagram_link {
+    transition: text-decoration 0.3s ease; /* Sanfte Übergänge */
 }
 
 /* Info-Container */

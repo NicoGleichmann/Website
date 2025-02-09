@@ -30,34 +30,46 @@ window.addEventListener('wheel', (e) => {
 })
 
 
+
+
 container.addEventListener("mousedown", (e) => {
-    isDragging = true;
-    container.classList.add("active");
-    startX = e.pageX - container.offsetLeft;
-    scrollLeft = container.scrollLeft;
-  });
+  e.preventDefault(); // Verhindert das Markieren von Text
+  isDragging = true;
+  container.classList.add("active");
+  startX = e.pageX - container.offsetLeft;
+  scrollLeft = container.scrollLeft;
+});
 
-  container.addEventListener("mouseleave", () => {
-    isDragging = false;
-    container.classList.remove("active");
-  });
+container.addEventListener("mouseleave", () => {
+  isDragging = false;
+  container.classList.remove("active");
+});
 
-  container.addEventListener("mouseup", () => {
-    isDragging = false;
-    scrollContainer.classList.remove("active");
-  });
+container.addEventListener("mouseup", () => {
+  isDragging = false;
+  container.classList.remove("active");
+});
 
-  container.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - container.offsetLeft;
-    const walk = (x - startX) * 2; // Adjust scroll sensitivity
-    container.scrollLeft = scrollLeft - walk;
-  });
+container.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+  e.preventDefault();
+  const x = e.pageX - container.offsetLeft;
+  const walk = (x - startX) * 2; // Adjust scroll sensitivity
+  container.scrollLeft = scrollLeft - walk;
+});
+
+// CSS hinzufügen, um die Textauswahl zu verhindern
+container.style.userSelect = "none";
+container.style.webkitUserSelect = "none"; // Für ältere Safari-Versionen
+container.style.msUserSelect = "none"; // Für ältere Edge-Versionen
+
+
 
 
 // Alert
 //alert("Nutze das Mausrad zum scrollen des Bildschirms!");
+
+
 
 // Links für Container
 const emailbox = document.getElementById("email_box");
@@ -71,6 +83,9 @@ emailbox.addEventListener("click", () => {
 instabox.addEventListener("click", () => {
     window.location.href = "https://www.instagram.com/nico.gleichmann/";
 });
+
+
+
 
 //INSTA BOX 6
 instabox2.addEventListener("click", () => {
@@ -127,24 +142,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //ANIMATION
-const boxes = document.querySelectorAll('.box, .case, .email-box, .lite, .box_top, .full_width, .post-container');
+const boxes = document.querySelectorAll('.box, .case, .email-box, .lite, .box_top, .post-container, .full_width');
 
 boxes.forEach(box => {
-  box.addEventListener('mouseover', () => {
-    box.style.transform = 'scale(1.1)';
-    box.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
-  });
+  if (!box.classList.contains('no-hover')) { // Überprüfe, ob die Klasse "no-hover" NICHT vorhanden ist
+    box.addEventListener('mouseover', () => {
+      box.style.transform = 'scale(1.1)';
+      box.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+    });
 
-  box.addEventListener('mouseout', () => {
-    box.style.transform = 'scale(1)';
-    box.style.boxShadow = 'none';
-  });
+    box.addEventListener('mouseout', () => {
+      box.style.transform = 'scale(1)';
+      box.style.boxShadow = 'none';
+    });
+  }
 });
 
 
+//INSTAGRAM LINK
+const instagramLink = document.getElementById('instagram_link');
 
+instagramLink.addEventListener('mouseover', () => {
+  instagramLink.textContent = 'Instagram'; // Ändert den Text zu "Instagram"
+  instagramLink.style.textDecoration = 'underline'; // Fügt einen Unterstrich hinzu
+});
 
-
+instagramLink.addEventListener('mouseout', () => {
+  instagramLink.textContent = 'Nico Gleichmann'; // Setzt den Text zurück
+  instagramLink.style.textDecoration = 'none'; // Entfernt den Unterstrich
+});
 
 
 
