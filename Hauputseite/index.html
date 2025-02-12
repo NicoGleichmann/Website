@@ -113,13 +113,15 @@
             <div class="header">
               <img src="/img/instagram.png" alt="Instagram Logo" class="icon">
             </div>
-            <div class="image-container">
-              <img src="/img/insta02.jpg" alt="Cityscape">
+            <div class="image-container slider">
+              <img src="/img/insta02.jpg" alt="Cityscape" class="slide">
+              <img src="/img/Profil.JPG" alt="Cityscape" class="slide">
+              <img src="/img/black_kachel.jpg" alt="Cityscape" class="slide">
             </div>
             <div class="dots">
-              <span class="dot active"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
+                <span class="dot active" onclick="moveSlide(0)"></span>
+                <span class="dot" onclick="moveSlide(1)"></span>
+                <span class="dot" onclick="moveSlide(2)"></span>
             </div>
             <div class="lower_section">
               <span id="insta2">@nico.gleichmann</span>
@@ -142,9 +144,14 @@
         </div>
 
         <div class="box8 box">
-            <div class="top"></div>
-            <div class="bot"></div>
-            <button></button>
+            <div class="form-box newsletter-box">
+                <h2>Abonniere meinen Newsletter</h2>
+                <p>Erhalte die neuesten Updates direkt in dein Postfach!</p>
+                <form id="newsletter-form">
+                  <input type="email" placeholder="Deine E-Mail-Adresse" required>
+                  <button type="submit">Abonnieren</button>
+                </form>
+              </div>
         </div>
     </div>
 
@@ -162,7 +169,11 @@
     
     
     
-
+    <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookie-banner">
+    <p>Wir verwenden Cookies, um sicherzustellen, dass wir Ihnen die beste Erfahrung auf unserer Website bieten. Durch die Nutzung dieser Website stimmen Sie der Verwendung von Cookies zu.</p>
+    <button class="cookie-btn" id="accept-cookies">Zustimmen</button>
+  </div>
     
     <script src="script.js"></script>
 </body>
@@ -172,13 +183,16 @@
 <!--
 1. Links einfügen und Icons ordentlich machen (Box2)
 2. Hover Effekt entfernen (Box4)
-3. Insta Box hover ka? sieht irgendwie kacke aus (Box 6)
-4. Insta Box Image Slider 
+3. Insta Box hover ka? sieht irgendwie kacke aus (Box 6) [DONE]
+4. Insta Box Image Slider [IN PROGRESS]
 5. Box 7 (Projekte) schöner machen
-6. Box 8 (Newsletter/Kontakt) schöner machen
+6. Box 8 (Newsletter/Kontakt) schöner machen [IN PROGRESS]
 7. Scroll Effekt Maus markiert alles wegmachen [DONE]
-8. DarkMode
-9. Alert wenn man auf die Website kommt aktivieren
+8. DarkMode [mit Canvas von ChatGPT]
+9. Animationen [mit Canvas von ChatGPT]
+9. Alert wenn man auf die Website kommt aktivieren [DONE]
+10. Cookies machen [IN PROGRESS]
+11.Datenbank erstellen für Cookies
 -->
 
 

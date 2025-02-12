@@ -440,6 +440,12 @@ html, body {
     height: 100%;
     object-fit: cover;
 }
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+  }
   
 /* Punkte unter dem Bild */
 .dots {
@@ -483,7 +489,7 @@ html, body {
     background-color: #111;
     border-radius: 20px;
     padding: 30px;
-    height: 165.5px;
+    height: 157px;
     margin: 12px 12px 12px 8px;
 
     display: flex;
@@ -514,6 +520,78 @@ html, body {
     cursor: pointer;
     background: #1f1e1e;
 }
+
+
+h2 {
+    color: #fff;
+  }
+  
+  .form-box {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    text-align: center;
+    transition: transform 0.6s ease;
+    position: relative; /* Position relativ setzen, um Z-Index zu verwenden */
+    z-index: 1; /* Stellt sicher, dass der Hover-Effekt nicht die Eingabefelder blockiert */
+  }
+  
+  .form-box:hover {
+    transform: translateY(-10px);
+  }
+  
+  .form-box p {
+    font-size: 16px;
+    color: #969696;
+    margin-bottom: 30px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease;
+  }
+  
+  input:focus, textarea:focus {
+    border-color: #d4ba61;
+    outline: none;
+  }
+  
+  button {
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #d4ba61;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #afa849;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+
+
+  textarea {
+    resize: vertical;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
 
 /* ========== */ 
 
@@ -622,6 +700,69 @@ html, body {
 }
 
 
+/* Cookie Banner */
+.cookie-banner {
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    text-align: center;
+    z-index: 1000;
+    border-radius: 15px 15px 0 0;
+    display: none;
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .cookie-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .cookie-text {
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .cookie-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .cookie-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+  }
+  
+  .cookie-btn:focus {
+    outline: none;
+  }
+  
+  .content {
+    padding: 20px;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  /* Animation für das Erscheinen des Banners */
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
 
 
 
