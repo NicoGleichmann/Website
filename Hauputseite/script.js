@@ -12,6 +12,10 @@ themeButton.addEventListener('click', () => {
         body.style.backgroundColor = '#fff';
         body.style.color = '#fff';
         themeButton.textContent = '🌙';
+        elements.forEach(el => {
+          el.style.backgroundColor = "#fff";
+          el.style.color = "#ffffff";
+        });
     }
     isDarkMode = !isDarkMode;
 });
@@ -22,6 +26,7 @@ themeButton.addEventListener('click', () => {
 const emailbox = document.getElementById("email_box");
 const instabox = document.getElementById("insta");
 const instabox2 = document.getElementById("insta2");
+const youtube = document.getElementById("youtube");
 
 emailbox.addEventListener("click", () => {
     window.location.href = "https://mail.google.com/mail/u/0/?pli=1#inbox";
@@ -29,6 +34,10 @@ emailbox.addEventListener("click", () => {
 
 instabox.addEventListener("click", () => {
     window.location.href = "https://www.instagram.com/nico.gleichmann/";
+});
+
+youtube.addEventListener("click", () => {
+  window.location.href = "https://www.youtube.com/@NicoGleichmann";
 });
 
 
@@ -188,38 +197,51 @@ boxes.forEach(box => {
 
 //COOKIE BANNER
 
-// Überprüfen, ob der Benutzer bereits zugestimmt hat
+
+
+// Cookie Banner Funktionen
+const cookieBanner = document.getElementById("cookie-banner");
 if (!getCookie('cookiesAccepted')) {
-  // Zeige das Cookie-Banner, wenn der Benutzer noch nicht zugestimmt hat
-  document.getElementById('cookie-banner').style.display = 'block';
+    cookieBanner.style.display = 'block';
 }
 
-// Wenn der Benutzer auf "Zustimmen" klickt, speichere die Zustimmung in einem Cookie
-document.getElementById('accept-cookies').addEventListener('click', function() {
-  setCookie('cookiesAccepted', 'true', 365);  // Setze das Cookie für 365 Tage
-  document.getElementById('cookie-banner').style.display = 'none';  // Verstecke das Banner
+document.getElementById("accept-cookies").addEventListener("click", function() {
+    setCookie("cookiesAccepted", "true", 365);
+    cookieBanner.style.display = 'none';
 });
 
-// Funktion zum Setzen eines Cookies
+document.getElementById("reject-cookies").addEventListener("click", function() {
+    cookieBanner.style.display = 'none';
+});
+
 function setCookie(name, value, days) {
-  const d = new Date();
-  d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));  // Ablaufdatum des Cookies
-  const expires = "expires=" + d.toUTCString();
-  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    const d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + d.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
 
-// Funktion zum Abrufen eines Cookies
 function getCookie(name) {
-  const nameEQ = name + "=";
-  const ca = document.cookie.split(';');
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-  }
-  return null;
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
 }
 
 
 // Alert
 //alert("Nutze das Mausrad zum scrollen des Bildschirms!");
+
+
+
+
+
+
+
+
+
+
