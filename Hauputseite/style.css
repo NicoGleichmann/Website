@@ -176,8 +176,8 @@ html, body {
 /* ===== Inhalt von Box2 ===== */
 
 .box2 {
-    flex: 0 0 25vw; /* Box1 hat 50% der Breite des Viewports */
-    height: 63.1%;
+    flex: 0 0 28vw; /* Box1 hat 50% der Breite des Viewports */
+    height: 63.2%;
     padding: 40px;
 
     /*display: flex;
@@ -247,7 +247,6 @@ html, body {
     background-color: #111;
     border-radius: 20px;
     padding: 20px;
-    padding-top: 27px;
     text-align: center;
     font-size: 1rem;
     font-weight: 500;
@@ -260,6 +259,11 @@ html, body {
 .email-box:hover{
     cursor: pointer;
     background: #1f1e1e;
+}
+
+.email-box img{
+    width: 40px;
+    height: 40px;
 }
 
 /* Anpassung für große Boxen */
@@ -494,7 +498,7 @@ html, body {
     background-color: #111;
     border-radius: 20px;
     padding: 30px;
-    height: 157px;
+    height: 165px;
     margin: 12px 12px 12px 8px;
 
     display: flex;
@@ -711,7 +715,7 @@ h2 {
     bottom: 30px;
     right: 0px;
     left: 20px;
-    width: 300px;
+    width: 400px;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
@@ -730,22 +734,30 @@ h2 {
     transition: background 0.3s;
 }
 
+.cookie-content h4{
+    margin-bottom: 3px;
+}
+
+.cookie-content .cookie-buttons{
+    margin-top: 10px;
+}
+
 .accept {
-    background-color: #4CAF50;
+    background-color: #d4ba61;
     color: white;
 }
 
 .accept:hover {
-    background-color: #45a049;
+    background-color: #cac16c;
 }
 
 .reject {
-    background-color: #f44336;
+    background-color: linear-gradient(to right, #3b3b3b, #b3b3b3);
     color: white;
 }
 
 .reject:hover {
-    background-color: #e53935;
+    background-color: linear-gradient(to right, #646464, #b3b3b3);
 }
 
 .settings {

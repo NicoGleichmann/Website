@@ -5,85 +5,33 @@ let isDarkMode = true;
 // Theme Toggle
 themeButton.addEventListener('click', () => {
     if (isDarkMode) {
-        body.style.backgroundColor = '#030303';
-        body.style.color = '#030303 ';
         themeButton.textContent = '☀️';
     } else {
-        body.style.backgroundColor = '#fff';
-        body.style.color = '#fff';
         themeButton.textContent = '🌙';
-        elements.forEach(el => {
-          el.style.backgroundColor = "#fff";
-          el.style.color = "#ffffff";
-        });
     }
     isDarkMode = !isDarkMode;
 });
 
 
+//Input Focus entfernen
+document.addEventListener("click", (event) => {
+  const input = document.getElementById("textInput");
 
-// Links für Container
-const emailbox = document.getElementById("email_box");
-const instabox = document.getElementById("insta");
-const instabox2 = document.getElementById("insta2");
-const youtube = document.getElementById("youtube");
-
-emailbox.addEventListener("click", () => {
-    window.location.href = "https://mail.google.com/mail/u/0/?pli=1#inbox";
-});
-
-instabox.addEventListener("click", () => {
-    window.location.href = "https://www.instagram.com/nico.gleichmann/";
-});
-
-youtube.addEventListener("click", () => {
-  window.location.href = "https://www.youtube.com/@NicoGleichmann";
+  // Prüfen, ob das geklickte Element NICHT das Input-Feld ist
+  if (event.target !== input) {
+      input.blur(); // Fokus entfernen
+  }
 });
 
 
 
 
-//INSTA BOX 6
-instabox2.addEventListener("click", () => {
-  window.location.href = "https://www.instagram.com/nico.gleichmann/";
-});
-insta2.addEventListener("mouseover", () => {
-  insta2.style.cursor = "pointer";
-});
-// (Optional) Cursor wieder normal setzen, wenn der Benutzer den Bereich verlässt
-insta2.addEventListener("mouseout", () => {
-  insta2.style.cursor = "default"; // Standard-Cursor
-});
-let currentIndex = 0;
 
-function moveSlide(index) {
-  const slides = document.querySelectorAll('.slide');
-  const dots = document.querySelectorAll('.dot');
-  
-  currentIndex = index;
-  
-  // Update the slider position
-  const slider = document.querySelector('.slider, .image-container');
-  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-  
-  // Update active class for dots
-  dots.forEach(dot => dot.classList.remove('active'));
-  dots[currentIndex].classList.add('active');
-}
+//Insta Box
 
 
-//INSTAGRAM LINK
-const instagramLink = document.getElementById('instagram_link');
 
-instagramLink.addEventListener('mouseover', () => {
-  instagramLink.textContent = 'Instagram'; // Ändert den Text zu "Instagram"
-  instagramLink.style.textDecoration = 'underline'; // Fügt einen Unterstrich hinzu
-});
 
-instagramLink.addEventListener('mouseout', () => {
-  instagramLink.textContent = 'Nico Gleichmann'; // Setzt den Text zurück
-  instagramLink.style.textDecoration = 'none'; // Entfernt den Unterstrich
-});
 
 
 
@@ -130,6 +78,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+//Links
+document.addEventListener("click", (event) => {
+  const target = event.target; // Angeclicktes Element
+  if (target.classList.contains("case")) {
+      const url = target.getAttribute("data-link"); // Link aus dem Attribut
+      if (url) {
+          window.open(url, "_blank"); // Öffnet Link in neuem Tab
+      }
+  }
+});
+
+
+
 // Mausrad Scroll für horizontales Bewegen
 const container = document.querySelector('.container');
 let isDragging = false; //für ziehen
@@ -143,7 +105,13 @@ window.addEventListener('wheel', (e) => {
     }
 })
 
+
+
 container.addEventListener("mousedown", (e) => {
+  if (e.target.tagName.toLowerCase() === "input" || e.target.tagName.toLowerCase() === "textarea") {
+    return; // Verhindert, dass der Scroll-Mechanismus bei Input-Feldern greift
+  }
+  
   e.preventDefault(); // Verhindert das Markieren von Text
   isDragging = true;
   container.classList.add("active");
@@ -169,35 +137,70 @@ container.addEventListener("mousemove", (e) => {
   container.scrollLeft = scrollLeft - walk;
 });
 
-// CSS hinzufügen, um die Textauswahl zu verhindern
-container.style.userSelect = "none";
-container.style.webkitUserSelect = "none"; // Für ältere Safari-Versionen
-container.style.msUserSelect = "none"; // Für ältere Edge-Versionen
-
-
 
 //ANIMATION
-const boxes = document.querySelectorAll('.case, .email-box, .lite, .box_top,  .full_width');
 
-boxes.forEach(box => {
-  if (!box.classList.contains('no-hover')) { // Überprüfe, ob die Klasse "no-hover" NICHT vorhanden ist
-    box.addEventListener('mouseover', () => {
-      box.style.transform = 'scale(1.1)';
-      box.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll("div, button, a, input, textarea");
+  
+  // Hover-Effekt hinzufügen
+  elements.forEach(el => {
+      el.style.transition = "all 0.3s ease";
+      
+      el.addEventListener("mouseenter", () => {
+          el.style.transform = "translateY(-5px)";
+          el.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.1)";
+      });
+      
+      el.addEventListener("mouseleave", () => {
+          el.style.transform = "translateY(0)";
+          el.style.boxShadow = "none";
+      });
+  });
 
-    box.addEventListener('mouseout', () => {
-      box.style.transform = 'scale(1)';
-      box.style.boxShadow = 'none';
+  // Slide-In-Animation beim Laden der Seite
+  document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll(".slide-in");
+    
+    elements.forEach((el, index) => {
+        const directions = ["translateX(-50px)", "translateX(50px)", "translateY(-50px)", "translateY(50px)"];
+        const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+        
+        el.style.opacity = "0";
+        el.style.transform = randomDirection;
+        el.style.transition = `opacity 0.8s ease-out ${(index * 0.1).toFixed(2)}s, transform 0.8s ease-out ${(index * 0.1).toFixed(2)}s`;
     });
-  }
+    
+    setTimeout(() => {
+        elements.forEach(el => {
+            el.style.opacity = "1";
+            el.style.transform = "translateX(0) translateY(0)";
+        });
+    }, 100);
+  });});
+
+// Minimalistische Hover-Effekte für alle wichtigen Elemente
+document.querySelectorAll("div, button, a, input, textarea").forEach(el => {
+    el.style.transition = "all 0.3s ease";
+    
+    el.addEventListener("mouseenter", () => {
+        el.style.transform = "scale(1.03)";
+        el.style.boxShadow = "0 5px 15px rgba(0, 0, 0, 0.1)";
+    });
+    
+    el.addEventListener("mouseleave", () => {
+        el.style.transform = "scale(1)";
+        el.style.boxShadow = "none";
+    });
 });
 
 
 
+
+
+
+
 //COOKIE BANNER
-
-
 
 // Cookie Banner Funktionen
 const cookieBanner = document.getElementById("cookie-banner");
@@ -235,13 +238,3 @@ function getCookie(name) {
 
 // Alert
 //alert("Nutze das Mausrad zum scrollen des Bildschirms!");
-
-
-
-
-
-
-
-
-
-

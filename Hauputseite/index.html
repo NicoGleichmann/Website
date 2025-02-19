@@ -13,7 +13,7 @@
 
     <div class="main container">
 
-        <div class="box1 box">
+        <div class="box1 box slide-in">
             <a href="/portfolio/portfolio.html">
                 <div class="top">
                     <img src="/img/Profil.JPG">
@@ -31,38 +31,38 @@
             </a>
         </div>
 
-        <div class="box2">
+        <div class="box2 slide-in">
             <!-- Top Left Box -->
-            <div class="case large_box" id="insta">
-                <div class="icon">🐦</div>
+            <div class="case large_box" id="insta" data-link="https://www.instagram.com/nico.gleichmann/">
+                <div class="icon"><img src="/img/insta.png" alt=""></div>
                 <div class="text">
-                    <div class="username">@insta</div>
+                    <div class="username">@nico.gleichmann</div>
                     <div class="followers">5,215 followers</div>
                 </div>
             </div>
     
             <!-- Top Right Boxes -->
-            <div class="case">
+            <div class="case" id="tiktok" data-link="https://www.tiktok.com/">
                 <div class="icon"><img src="/img/tiktok2.png" alt=""></div>
                 <div class="text">
-                    <div class="username">@nico.gleichmann</div>
+                    <div class="username">@tiktok</div>
                 </div>
             </div>
     
-            <div class="case" id="youtube">
-                <div class="icon"><img src="/img/youtube.png" alt=""></div>
+            <div class="case" id="youtube" data-link="https://www.youtube.com/@NicoGleichmann">
+                <div class="icon"><img src="/img/youtube_white.png" alt=""></div>
                 <div class="text">
                     <div class="username">@NicoGleichmann</div>
                 </div>
             </div>
     
             <!-- Email Full Width Box -->
-            <div class="email-box" id="email_box">
-                nicogleichmann39@gmail.com
+            <div class="email-box case" id="email_box" data-link="https://mail.google.com/mail/u/0/#inbox">
+                <img src="/img/gmail.png" alt="">nicogleichmann39@gmail.com
             </div>
     
             <!-- Bottom Left Box -->
-            <div class="large_box case">
+            <div class="large_box case" id="business" data-link="/business/business.html">
                 <div class="icon">🔗</div>
                 <div class="text">
                     <div class="username">@BusinessSite</div>
@@ -71,26 +71,26 @@
             </div>
     
             <!-- Bottom Right Boxes -->
-            <div class=" case">
-                <div class="icon">🎲</div>
+            <div class="case" id="facebook" data-link="https://www.facebook.com/profile.php?id=61571706736157">
+                <div class="icon"><img src="/img/facebook.png" alt=""></div>
                     <div class="text">
-                    <div class="username">@linkedin</div>
+                    <div class="username">@Nico Gleichmann</div>
                 </div>
             </div>
     
-            <div class="case">
-                <div class="icon">🏀</div>
+            <div class="case" id="x" data-link="https://x.com/nico_gleichmann">
+                <div class="icon"><img src="/img/x2.png" alt=""></div>
                     <div class="text">
-                    <div class="username">@x</div>
+                    <div class="username">@nico_gleichmann</div>
                 </div>
             </div>
         </div>
 
-        <div class="box3 box no-hover">
+        <div class="box3 box no-hover slide-in">
             <img src="/img/black_02.jpg">
         </div>
 
-        <div class="box4 no-hover">
+        <div class="box4 no-hover slide-in">
             <div class="box_top">
                 <img src="/img/black_01.jpg" class="first">
                 <img src="/img/black_02.jpg" class="second">
@@ -105,18 +105,18 @@
             </div>
         </div>
 
-        <div class="box5 box no-hover">
+        <div class="box5 box no-hover slide-in">
             <img src="/img/black-background.jpg">
         </div>
 
-        <div class="post-container box6 box insta">
+        <div class="post-container box6 box insta slide-in">
             <div class="header">
               <img src="/img/instagram.png" alt="Instagram Logo" class="icon">
             </div>
             <div class="image-container slider">
-              <img src="/img/insta02.jpg" alt="Cityscape" class="slide">
-              <img src="/img/Profil.JPG" alt="Cityscape" class="slide">
-              <img src="/img/black_kachel.jpg" alt="Cityscape" class="slide">
+              <img src="/img/insta02.jpg" alt="" class="slide">
+              <img src="#" alt="" class="slide">
+              <img src="#" alt="" class="slide">
             </div>
             <div class="dots">
                 <span class="dot active" onclick="moveSlide(0)"></span>
@@ -128,27 +128,27 @@
             </div>
           </div>
 
-        <div class="box7">
+        <div class="box7 slide-in">
             <div class="lite">
-                <h4>Designing Inclusive Experiences</h4>
-                <p>Jan 1, 2023</p>
+                <h4>1. Website Portfolio fertig machen</h4>
+                <p>1.April 2025</p>
             </div>
             <div class="lite">
-                <h4>Creating Effective Onboarding Experiences for AI Products</h4>
-                <p>Apr 8, 2022</p>
+                <h4>2. Website Business fertig machen</h4>
+                <p>15.Mai 2025</p>
             </div>
             <div class="lite">
-                <h4>Create a Landing Page That Performs Great</h4>
-                <p>Mar 15, 2022</p>
+                <h4>3. Social Media up to date bringen</h4>
+                <p>30. Mai 2025</p>
             </div>
         </div>
 
-        <div class="box8 box">
+        <div class="box8 box slide-in">
             <div class="form-box newsletter-box">
                 <h2>Abonniere meinen Newsletter</h2>
                 <p>Erhalte die neuesten Updates direkt in dein Postfach!</p>
                 <form id="newsletter-form">
-                  <input type="email" placeholder="Deine E-Mail-Adresse" required>
+                  <input type="search" placeholder="Deine E-Mail-Adresse" id="textInput">
                   <button type="submit">Abonnieren</button>
                 </form>
               </div>
@@ -186,43 +186,37 @@
 </body>
 </html>
 
- 
+<!--Icons in Box2--> 
+
+
+
 <!--
-1. Links einfügen und Icons ordentlich machen (Box2)
-2. Hover Effekt entfernen (Box4)
-3. Insta Box hover ka? sieht irgendwie kacke aus (Box 6) [DONE]
-4. Insta Box Image Slider [IN PROGRESS]
-5. Box 7 (Projekte) schöner machen
-6. Box 8 (Newsletter/Kontakt) schöner machen [IN PROGRESS]
-7. Scroll Effekt Maus markiert alles wegmachen [DONE]
-8. DarkMode [mit Canvas von ChatGPT]
-9. Animationen [mit Canvas von ChatGPT]
+1. Links einfügen und Icons ordentlich machen (Box2) [DONE]     
+2. Hover Effekt entfernen (Box4)                MACHEN
+3. Insta Box (Box 6) [IN PROGRESS]                  MACHEN
+4. Box 8 (Newsletter/Kontakt) schöner machen [DONE]
+5. Scroll Effekt Maus markiert alles wegmachen [DONE]
+6. DarkMode [mit Canvas von ChatGPT]                    MACHEN
+7. Animationen wenn man auf die Website kommt [IN PROGRESS]
+8. Animationen wenn man hovert
 9. Alert wenn man auf die Website kommt aktivieren [DONE]
-10. Cookies machen [IN PROGRESS]
+
+Wenn die Seite fertig ist:
+10. Impressum erstellen
 11.Datenbank erstellen für Cookies
 12. Datenschutz und Sicherheit für die Website
+13.Newsletter Funktion validieren 
 -->
 
-<!--
-Ich habe gleich mal mehrere Anliegen. Ich möchte dass du die Grundstruktur des Codes NICHT änderst nur Sachen die absolut wichtig sind 
-ABER den Aufbau und style der Grundstrukur der Website beibehält und nicht änderst. Also Nummer 1. Füge Animationen wenn man die Seite 
-öffnet oder neulädt oder scrollt in irgend eine Richtung das dann so reinflieg animationen kommen das das einfach nen bisschen 
-interaktiver ist und schöner für das Auge, dass wenn man die Sachen macht die ich gerade gesagt habe das dann eine geile Animationen 
-kommt. Mein 2. Anliegen ist das ich ganz gerne einen White Mode noch hätte: den Dark Mode habe ich bereits das der der Standard 
-eingestellt ist ich möchte aber das man über den Button oben in der Mitte was bereits mit JS eingestellt ist in den White Mode kommt, 
-nur es sind noch keine Farben für die ganzen Elemete und so der Rest ist halt noch nicht eingestellt. Also ich möchte jetzt das du für 
-mich jedes Element auf der Website inklusive Body Hintergrund in den White MOde überführst und dann ein nahtloses umschalten von 
-Dark Mode (was jetzt gerade ist und was ich schon gemacht habe) zu White mode. Dann ist mein 3. Anliegen das du den Hover Effekt also 
-das man wenn man über die Bilder der Box4 drüber geht das dann so ein hovereffekt entsteht den möchte ich komplett entfernt haben für 
-diese Elemente nur da war halt das Problem glaube ich dass dass ein .box Elemnte war und dass kann halt auch nicht weg weil das dann 
-die Grundeinstellungen der Box4 vernichtet also finde da mal einen weg den Hover Effekt für das Element zu entfernen aber ohne das andere 
-Elemente (Boxen) davon beeinträchtigt / beeinflusst sind. Dann mein 4. Anliegen ist, dass du nochmal nach dem Image Slider in 
-der Box6/post-container schaust der Effekt geht zwar nur das zweite und dritte Bild sind irgendwie nicht zu sehen löse das mal bitte 
-und dann füge mal noch einen Effekt hinzu das man auch manuell in dem man mit der Maus an einer Seite des Bildes zieht das man dann 
-zum nächsten kommt.
 
-Ich möchte dass du die Grundstruktur des Codes NICHT änderst nur Sachen die absolut wichtig sind 
-ABER den Aufbau und style der Grundstrukur der Website beibehält und nicht änderst. Mein 1. Anliegen ist das ich ganz gerne einen White 
-Mode noch hätte: den Dark Mode habe ich bereits das der der Standard 
-eingestellt ist ich möchte aber das man über den Button oben in der Mitte was bereits mit JS eingestellt ist in den White Mode kommt, 
-nur es sind noch keine Farben für die ganzen Elemete und so der Rest ist halt noch nicht eingestellt. 
+
+
+
+
+
+
+<!--
+Verbesserungen für später:
+ -Links (Box2) nicht in einem anderen Fenster öffnen
+
+-->
