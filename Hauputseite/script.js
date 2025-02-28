@@ -2,15 +2,29 @@ const themeButton = document.getElementById('theme-toggle');
 const body = document.body;
 let isDarkMode = true;
 
+// Dark Mode beim Laden aktivieren
+document.addEventListener('DOMContentLoaded', () => {
+    body.classList.add('dark-mode'); // Falls du eine CSS-Klasse für Dark Mode hast
+    themeButton.textContent = '☀️'; // Setzt das richtige Symbol
+});
+
 // Theme Toggle
 themeButton.addEventListener('click', () => {
+    isDarkMode = !isDarkMode;
     if (isDarkMode) {
+        body.classList.add('dark-mode');
         themeButton.textContent = '☀️';
     } else {
+        body.classList.remove('dark-mode');
         themeButton.textContent = '🌙';
     }
-    isDarkMode = !isDarkMode;
 });
+
+//White Mode
+document.getElementById("theme-toggle").addEventListener("click", function() {
+    document.body.classList.toggle("white-mode");
+});
+
 
 
 //Input Focus entfernen
@@ -24,6 +38,13 @@ document.addEventListener("click", (event) => {
 });
 
 
+//BOX 4 BILDER
+document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll(".box4 img");
+    images.forEach(img => {
+        img.style.boxShadow = "inset 0 0 10px rgba(255, 255, 255, 1)";
+    });
+});
 
 
 
@@ -136,65 +157,6 @@ container.addEventListener("mousemove", (e) => {
   const walk = (x - startX) * 2; // Adjust scroll sensitivity
   container.scrollLeft = scrollLeft - walk;
 });
-
-
-//ANIMATION
-
-document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll("div, button, a, input, textarea");
-  
-  // Hover-Effekt hinzufügen
-  elements.forEach(el => {
-      el.style.transition = "all 0.3s ease";
-      
-      el.addEventListener("mouseenter", () => {
-          el.style.transform = "translateY(-5px)";
-          el.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.1)";
-      });
-      
-      el.addEventListener("mouseleave", () => {
-          el.style.transform = "translateY(0)";
-          el.style.boxShadow = "none";
-      });
-  });
-
-  // Slide-In-Animation beim Laden der Seite
-  document.addEventListener("DOMContentLoaded", function () {
-    const elements = document.querySelectorAll(".slide-in");
-    
-    elements.forEach((el, index) => {
-        const directions = ["translateX(-50px)", "translateX(50px)", "translateY(-50px)", "translateY(50px)"];
-        const randomDirection = directions[Math.floor(Math.random() * directions.length)];
-        
-        el.style.opacity = "0";
-        el.style.transform = randomDirection;
-        el.style.transition = `opacity 0.8s ease-out ${(index * 0.1).toFixed(2)}s, transform 0.8s ease-out ${(index * 0.1).toFixed(2)}s`;
-    });
-    
-    setTimeout(() => {
-        elements.forEach(el => {
-            el.style.opacity = "1";
-            el.style.transform = "translateX(0) translateY(0)";
-        });
-    }, 100);
-  });});
-
-// Minimalistische Hover-Effekte für alle wichtigen Elemente
-document.querySelectorAll("div, button, a, input, textarea").forEach(el => {
-    el.style.transition = "all 0.3s ease";
-    
-    el.addEventListener("mouseenter", () => {
-        el.style.transform = "scale(1.03)";
-        el.style.boxShadow = "0 5px 15px rgba(0, 0, 0, 0.1)";
-    });
-    
-    el.addEventListener("mouseleave", () => {
-        el.style.transform = "scale(1)";
-        el.style.boxShadow = "none";
-    });
-});
-
-
 
 
 
