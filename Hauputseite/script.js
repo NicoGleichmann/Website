@@ -13,19 +13,14 @@ themeButton.addEventListener('click', () => {
     isDarkMode = !isDarkMode;
     if (isDarkMode) {
         body.classList.add('dark-mode');
+        body.classList.remove('white-mode');
         themeButton.textContent = '☀️';
     } else {
         body.classList.remove('dark-mode');
+        body.classList.toggle('white-mode');
         themeButton.textContent = '🌙';
     }
 });
-
-//White Mode
-document.getElementById("theme-toggle").addEventListener("click", function() {
-    document.body.classList.toggle("white-mode");
-});
-
-
 
 //Input Focus entfernen
 document.addEventListener("click", (event) => {
@@ -164,30 +159,63 @@ container.addEventListener("mousemove", (e) => {
 
 //COOKIE BANNER
 
-// Cookie Banner Funktionen
-const cookieBanner = document.getElementById("cookie-banner");
-if (!getCookie('cookiesAccepted')) {
-    cookieBanner.style.display = 'block';
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const cookieBanner = document.querySelector('.cookie-banner');
+    const acceptBtn = document.querySelector('.accept');
+    const rejectBtn = document.querySelector('.reject');
+    const settingsBtn = document.querySelector('.settings');
+    const closeBtn = document.querySelector('.close-cookie');
 
-document.getElementById("accept-cookies").addEventListener("click", function() {
-    setCookie("cookiesAccepted", "true", 365);
-    cookieBanner.style.display = 'none';
+    // Zeige Banner nach kurzer Verzögerung
+    setTimeout(() => {
+        if (!getCookie('cookieConsent')) {
+            cookieBanner.style.display = 'block';
+        }
+    }, 2000);
+
+    // Schließen Button
+    closeBtn.addEventListener('click', () => {
+        cookieBanner.style.display = 'none';
+    });
+
+    // Akzeptieren Button
+    acceptBtn.addEventListener('click', () => {
+        setCookie('cookieConsent', 'accepted', 365);
+        cookieBanner.style.animation = 'slideOut 0.5s ease-out forwards';
+        setTimeout(() => {
+            cookieBanner.style.display = 'none';
+        }, 500);
+    });
+
+    // Ablehnen Button
+    rejectBtn.addEventListener('click', () => {
+        setCookie('cookieConsent', 'rejected', 365);
+        cookieBanner.style.animation = 'slideOut 0.5s ease-out forwards';
+        setTimeout(() => {
+            cookieBanner.style.display = 'none';
+        }, 500);
+    });
+
+    // Einstellungen Button
+    settingsBtn.addEventListener('click', () => {
+        // Hier können Sie später die Cookie-Einstellungen implementieren
+        alert('Cookie-Einstellungen werden in Kürze verfügbar sein.');
+    });
 });
 
-document.getElementById("reject-cookies").addEventListener("click", function() {
-    cookieBanner.style.display = 'none';
-});
-
+// Cookie Helper Funktionen
 function setCookie(name, value, days) {
-    const d = new Date();
-    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-    const expires = "expires=" + d.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    let expires = '';
+    if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = '; expires=' + date.toUTCString();
+    }
+    document.cookie = name + '=' + (value || '') + expires + '; path=/';
 }
 
 function getCookie(name) {
-    const nameEQ = name + "=";
+    const nameEQ = name + '=';
     const ca = document.cookie.split(';');
     for (let i = 0; i < ca.length; i++) {
         let c = ca[i];
@@ -200,3 +228,121 @@ function getCookie(name) {
 
 // Alert
 //alert("Nutze das Mausrad zum scrollen des Bildschirms!");
+
+// Image Slider
+document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.slider-nav.prev');
+    const nextBtn = document.querySelector('.slider-nav.next');
+    
+    let currentSlide = 0;
+    let startX;
+    let isDragging = false;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+
+    // Initialize
+    function init() {
+        // Add event listeners
+        slider.addEventListener('mousedown', dragStart);
+        slider.addEventListener('touchstart', dragStart);
+        slider.addEventListener('mousemove', drag);
+        slider.addEventListener('touchmove', drag);
+        slider.addEventListener('mouseup', dragEnd);
+        slider.addEventListener('touchend', dragEnd);
+        slider.addEventListener('mouseleave', dragEnd);
+
+        // Navigation buttons
+        prevBtn.addEventListener('click', () => moveToSlide(currentSlide - 1));
+        nextBtn.addEventListener('click', () => moveToSlide(currentSlide + 1));
+
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => moveToSlide(index));
+        });
+
+        // Prevent context menu
+        slider.addEventListener('contextmenu', e => e.preventDefault());
+
+        // Set initial position
+        updateSliderPosition();
+    }
+
+    function dragStart(e) {
+        e.preventDefault();
+        if (e.type === 'touchstart') {
+            startX = e.touches[0].clientX;
+        } else {
+            startX = e.clientX;
+        }
+        isDragging = true;
+        slider.style.cursor = 'grabbing';
+    }
+
+    function drag(e) {
+        if (!isDragging) return;
+
+        const currentX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+        const diff = currentX - startX;
+        const walk = diff;
+
+        currentTranslate = prevTranslate + walk;
+        updateSliderPosition();
+    }
+
+    function dragEnd() {
+        isDragging = false;
+        slider.style.cursor = 'grab';
+
+        const movedBy = currentTranslate - prevTranslate;
+        
+        if (Math.abs(movedBy) > slider.clientWidth / 3) {
+            if (movedBy < 0 && currentSlide < slides.length - 1) {
+                currentSlide++;
+            } else if (movedBy > 0 && currentSlide > 0) {
+                currentSlide--;
+            }
+        }
+
+        moveToSlide(currentSlide);
+    }
+
+    function moveToSlide(index) {
+        // Handle bounds
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+
+        currentSlide = index;
+        currentTranslate = -index * slider.clientWidth;
+        prevTranslate = currentTranslate;
+
+        updateSliderPosition();
+        updateDots();
+    }
+
+    function updateSliderPosition() {
+        slider.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+    }
+
+    // Handle window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            currentTranslate = -currentSlide * slider.clientWidth;
+            prevTranslate = currentTranslate;
+            updateSliderPosition();
+        }, 250);
+    });
+
+    // Initialize slider
+    init();
+});

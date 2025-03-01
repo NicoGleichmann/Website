@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="style.css">
     <title>Startseite</title>
 </head>
@@ -11,7 +11,7 @@
         <button id="theme-toggle" class="theme-button">🌙</button>
     </div>
 
-    <div class="main container">
+    <div class="main container">            
 
         <div class="box1 box slide-in">
             <a href="/portfolio/portfolio.html">
@@ -107,20 +107,38 @@
             <div class="header">
               <img src="/img/instagram.png" alt="Instagram Logo" class="icon">
             </div>
-            <div class="image-container slider">
-              <img src="/img/insta02.jpg" alt="" class="slide">
-              <img src="#" alt="" class="slide">
-              <img src="#" alt="" class="slide">
-            </div>
-            <div class="dots">
-                <span class="dot active" onclick="moveSlide(0)"></span>
-                <span class="dot" onclick="moveSlide(1)"></span>
-                <span class="dot" onclick="moveSlide(2)"></span>
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <div class="slide">
+                        <img src="/img/insta_post1.jpg" alt="Digital Innovation">
+                    </div>
+                    <div class="slide">
+                        <img src="/img/insta_post2.jpg" alt="Creative Solutions">
+                    </div>
+                    <div class="slide">
+                        <img src="/img/insta_post3.jpg" alt="Tech Future">
+                    </div>
+                </div>
+                <div class="slider-nav prev">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="slider-nav next">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M8 4L14 10L8 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
             </div>
             <div class="lower_section">
               <span id="insta2">@nico.gleichmann</span>
             </div>
-          </div>
+        </div>
 
         <div class="box7 slide-in">
             <div class="lite">
@@ -150,7 +168,7 @@
     </div>
 
     <div class="footer">
-        <p>© 2025 by <a href="https://www.instagram.com/nico.gleichmann/" class="hover-effect instagram_link" id="instagram_link">Nico Gleichmann </a> | 
+        <p> 2025 by <a href="https://www.instagram.com/nico.gleichmann/" class="hover-effect instagram_link" id="instagram_link">Nico Gleichmann </a> | 
         <span class="info-container">Weitere Infos
             <div class="info-dropdown">
                 <a href="links.html" class="hover-effect">Nutzungslinks</a>
@@ -164,14 +182,17 @@
     
     
     <!-- Cookie Banner -->
-    <div class="cookie-banner" id="cookie-banner">
+    <div class="cookie-banner">
         <div class="cookie-content">
-            <h4>🍪 Cookie-Einstellungen</h4>
-            <p>Wir verwenden Cookies, um Ihnen das beste Erlebnis auf unserer Website zu bieten. Sie können Ihre Einstellungen jederzeit ändern.</p>
+            <div class="cookie-header">
+                <h4>🍪 Cookie-Einstellungen</h4>
+                <button class="close-cookie" aria-label="Schließen">×</button>
+            </div>
+            <p>Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern.</p>
             <div class="cookie-buttons">
-                <button class="cookie-btn accept" id="accept-cookies">Alle akzeptieren ✅</button>
-                <button class="cookie-btn settings" id="settings-cookies">Einstellungen ⚙️</button>
-                <button class="cookie-btn reject" id="reject-cookies">Ablehnen ❌</button>
+                <button class="accept">Alle akzeptieren</button>
+                <button class="settings">Einstellungen</button>
+                <button class="reject">Ablehnen</button>
             </div>
         </div>
     </div>
@@ -180,33 +201,15 @@
 </body>
 </html>
 
-<!--Icons in Box2--> 
-
 
 
 <!--    
-3. Insta Box (Box 6) [IN PROGRESS]                  MACHEN
-6. DarkMode [mit Canvas von ChatGPT]                    MACHEN
-7. Animationen wenn man auf die Website kommt [IN PROGRESS]
-8. Animationen wenn man hovert
-9. Alert wenn man auf die Website kommt aktivieren [DONE]
+1. Alert wenn man auf die Website kommt aktivieren [DONE]
+2. Responve Design [IN PROGRESS]
 
 Wenn die Seite fertig ist:
 10. Impressum erstellen
 11.Datenbank erstellen für Cookies
 12. Datenschutz und Sicherheit für die Website
 13.Newsletter Funktion validieren 
--->
-
-
-
-
-
-
-
-
-<!--
-Verbesserungen für später:
- -Links (Box2) nicht in einem anderen Fenster öffnen
-
 -->

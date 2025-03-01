@@ -76,14 +76,39 @@ body.white-mode {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Weicher Schatten für Tiefe */
 }
 
+/* Social Media Boxen */
+.white-mode .case {
+    background: #ffffff !important; /* Reinweiß für klare Struktur */
+    border: 1px solid #8d8d8d !important; /* Dezente Umrandung */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1) !important; /* Weicher Schatten für Tiefe */
+}
+
 /* Textfarben für bessere Sichtbarkeit */
 .white-mode h1, 
 .white-mode h2, 
 .white-mode h3, 
 .white-mode h4, 
 .white-mode .case,
-.white-mode p {
-    color: #333; /* Dunkelgrau für guten Kontrast */
+.white-mode p,
+.white-mode .username,
+.white-mode .case .text .followers,
+.white-mode .box1 .mid h2 {
+    color: #333 !important; /* Dunkelgrau für guten Kontrast */
+}
+
+/* Spezifische Regel für h2 in box1 */
+.white-mode .box1 .mid h2 {
+    color: #333 !important; /* Dunkelgrau für guten Kontrast */
+}
+
+.white-mode .mid h2 {
+    color: #333 !important;
+}
+
+/* Dark Mode Styles */
+.dark-mode .case .text .username,
+.dark-mode .case .text .followers {
+    color: #ffffff;
 }
 
 /* Links & Icons */
@@ -92,15 +117,6 @@ body.white-mode {
 }
 .white-mode a:hover {
     color: #004499; /* Dunkleres Blau beim Hover */
-}
-
-/* Social Media Boxen */
-.white-mode .case {
-    background: #fafafa; /* Weicher Farbton */
-    border: 1px solid #ddd;
-}
-.white-mode .case:hover {
-    background: #f0f0f0;
 }
 
 /* Newsletter Box */
@@ -119,26 +135,175 @@ body.white-mode {
 }
 
 /* Cookie Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 320px;
+    background: rgba(33, 33, 33, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+    animation: slideIn 0.5s ease-out;
+}
+
+.cookie-content {
+    padding: 20px;
+}
+
+.cookie-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.cookie-header h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.close-cookie {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.close-cookie:hover {
+    opacity: 1;
+}
+
+.cookie-content p {
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.cookie-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cookie-buttons button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.accept {
+    background: #4CAF50;
+    color: white;
+}
+
+.accept:hover {
+    background: #43A047;
+    transform: translateY(-1px);
+}
+
+.settings {
+    background: #424242;
+    color: white;
+}
+
+.settings:hover {
+    background: #616161;
+    transform: translateY(-1px);
+}
+
+.reject {
+    background: transparent;
+    color: #e0e0e0;
+    border: 1px solid #616161 !important;
+}
+
+.reject:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Cookie Banner Animation */
+@keyframes slideIn {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* White Mode Anpassungen */
 .white-mode .cookie-banner {
     background: rgba(255, 255, 255, 0.95);
-    border: 1px solid #ddd;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
-.white-mode .cookie-btn {
+
+.white-mode .cookie-header h4 {
+    color: #333;
+}
+
+.white-mode .close-cookie {
+    color: #333;
+}
+
+.white-mode .cookie-content p {
+    color: #666;
+}
+
+.white-mode .settings {
     background: #e0e0e0;
-    color: #222;
-}
-.white-mode .cookie-btn:hover {
-    background: #d6d6d6;
+    color: #333;
 }
 
-/* White Mode für Bilder */
-.white-mode img {
-    filter: brightness(1.1) contrast(1); /* Heller machen, falls notwendig */
+.white-mode .settings:hover {
+    background: #d5d5d5;
 }
 
-/* Weiche Animation für White Mode Wechsel */
-body {
-    transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
+.white-mode .reject {
+    color: #666;
+    border-color: #ccc !important;
+}
+
+/* Responsive Anpassungen für Cookie Banner */
+@media (max-width: 480px) {
+    .cookie-banner {
+        width: calc(100% - 40px);
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .cookie-content {
+        padding: 15px;
+    }
+
+    .cookie-header h4 {
+        font-size: 1rem;
+    }
+
+    .cookie-content p {
+        font-size: 0.85rem;
+    }
+
+    .cookie-buttons button {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
 }
 
 /* ========== */
@@ -171,9 +336,9 @@ body {
     flex-direction: row; 
     height: 100vh;
     width: auto;
-    overflow-x: auto; /* Nur eine Scrollbar-Definition */
-    overflow-y: hidden; /* Verhindert vertikales Scrollen */
-    scrollbar-width: thin;  /* Für Firefox */
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
 }
 
 /* Webkit Scrollbar Styling (Chrome, Safari, Edge) */
@@ -189,6 +354,36 @@ body {
 
 .main.container::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+/* Responsive Design */
+@media(max-width: 810px){
+    .main.container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box{
+        margin: 10px 20px;
+        width: 100%;
+    }
+
+    .box1{
+        margin-top: 70px;
+    }
+
+    .box2{
+        grid-template-columns: 1fr;
+        margin-bottom: 220px;
+    }
+
+    .email-box {
+        grid-column: auto;
+    }
+
+    .bottom-box {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Boxen */
@@ -222,7 +417,6 @@ body {
 
 .box1:hover{
     cursor: pointer;
-    background: #1f1e1e;
 }
 
 .box1 a{
@@ -276,10 +470,17 @@ body {
 .box1 .mid h2 {
     font-size: 1.8rem;
     line-height: 1.5;
-    color: #ddd;
     font-family: "Host Grotesk", serif;
     font-weight: 400;
     z-index: 1;
+}
+
+.white-mode .box1 .mid h2 {
+    color: #333 !important;
+}
+
+.dark-mode .box1 .mid h2 {
+    color: #ddd;
 }
 
 .box1 .bot {
@@ -323,7 +524,6 @@ body {
 
 .case:hover{
     cursor: pointer;
-    background: #1f1e1e;
 }
 
 .icon {
@@ -377,7 +577,6 @@ body {
 
 .email-box:hover{
     cursor: pointer;
-    background: #1f1e1e;
 }
 
 .email-box img{
@@ -498,13 +697,11 @@ body {
 
 /* ===== Inhalt von Box6 ===== */
 
-.box6{
-    flex: 0 0 23vw; /* Box1 hat 50% der Breite des Viewports */
-    border: 1px solid #fff;
+.box6 {
+    flex: 0 0 23vw;
     margin: 0 10px;
 }
 
-/* Allgemeiner Container */
 .post-container {
     background-color: #111;
     border-radius: 20px;
@@ -513,80 +710,142 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    overflow: hidden;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 1);
-    transition: background-color 0.4s ease-in-out; /* Übergangseffekt für den Farbwechsel */
+    transition: background-color 0.4s ease-in-out;
 }
-  
-.post-container:hover{
+
+.post-container:hover {
     background: #1f1e1e;
 }
 
-/* Header mit Instagram-Icon */
 .header {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    z-index: 2;
 }
-  
+
 .header .icon {
     width: 30px;
     height: 30px;
-    margin: 10px;
-    margin-bottom: 13px;
 }
-  
-/* Bildcontainer */
-.image-container {
+
+.slider-wrapper {
+    position: relative;
     width: 100%;
-    height: 75%;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
     overflow: hidden;
-    cursor: grab;
+    border-radius: 10px;
 }
-  
-.image-container img {
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    flex: 1 0 100%;
+}
+
+.slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
-  }
-  
-/* Punkte unter dem Bild */
 .dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    justify-content: center;
-    gap: 5px;
-    margin: 10px 0;
+    gap: 8px;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px;
+    border-radius: 15px;
 }
-  
+
 .dot {
     width: 8px;
     height: 8px;
-    background-color: gray;
     border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
-  
+
 .dot.active {
-    background-color: white;
+    background: white;
+    transform: scale(1.2);
 }
-  
-/* Footer mit Text */
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+    opacity: 0;
+    backdrop-filter: blur(8px);
+}
+
+.slider-wrapper:hover .slider-nav {
+    opacity: 1;
+}
+
+.slider-nav.prev {
+    left: 10px;
+}
+
+.slider-nav.next {
+    right: 10px;
+}
+
 .lower_section {
     width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    padding: 10px;
-    font-size: 1rem;
-    font-weight: bold;
+    padding: 15px 10px;
 }
-  
+
+#insta2 {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.white-mode .post-container {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.white-mode .dot {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.white-mode .dot.active {
+    background: #000;
+}
+
+.white-mode .slider-nav {
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+}
 
 /* ========== */
 
@@ -702,7 +961,7 @@ h2 {
     flex-direction: column;
   }
 
-/* ========== */ 
+/* ========== */
 
 
 
@@ -796,116 +1055,386 @@ h2 {
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
-    .footer {
-        font-size: 0.8rem;
+@media (max-width: 810px) {
+    .main.container {
+        padding: 15px;
+    }
+
+    .box {
+        margin: 10px;
+        width: calc(100vw - 40px);
+        min-height: 400px;
+    }
+
+    .box1 {
+        margin-top: 60px;
+    }
+
+    .box1 .top img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .box1 .mid h2 {
+        font-size: 1.4rem;
+        padding: 15px;
+    }
+
+    .box2 {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 15px;
+        margin-bottom: 200px;
+    }
+
+    .case {
+        padding: 12px;
+    }
+
+    .case .icon img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .case .text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main.container {
+        padding: 10px;
+    }
+
+    .box {
+        margin: 8px;
+        width: calc(100vw - 30px);
+        min-height: 350px;
+    }
+
+    .box1 .top img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .box1 .mid h2 {
+        font-size: 1.2rem;
+        padding: 12px;
+    }
+
+    .case {
+        padding: 10px;
+    }
+}
+
+/* Landscape Mode */
+@media (max-height: 600px) and (orientation: landscape) {
+    .main.container {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .box {
+        min-height: 300px;
+    }
+
+    .box1 .top img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Touch Devices */
+@media (hover: none) {
+    .box:hover, .case:hover {
+        transform: none;
+    }
+
+    .slider-nav {
+        opacity: 0.8;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 380px) {
+    .box {
+        flex: 0 0 95vw;
+        height: 35vh;
+        min-height: 300px;
+        margin-right: 10px;
+    }
+
+    .box1 .top img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .box1 .mid h2 {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .box2 .case {
         padding: 8px;
     }
-    
-    .info-dropdown {
-        min-width: 120px;
-        font-size: 0.8rem;
+
+    .box2 .case .text {
+        font-size: 0.85rem;
     }
 }
 
-
-/* Cookie Banner */
-.cookie-banner {
-    background-color: rgba(0, 0, 0, 0.85);
-    color: white;
-    position: fixed;
-    bottom: 30px;
-    right: 0px;
-    left: 20px;
-    width: 400px;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    font-size: 14px;
-    text-align: center;
-    display: none;
-    animation: fadeIn 0.5s ease-in-out;
+/* High DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .box1 .top img,
+    .case .icon img {
+        image-rendering: -webkit-optimize-contrast;
+    }
 }
 
-.cookie-buttons button {
-    margin: 5px;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
+/* Foldable Devices */
+@media (max-width: 320px) {
+    .box {
+        flex: 0 0 100vw;
+        margin-right: 5px;
+    }
 
-.cookie-content h4{
-    margin-bottom: 3px;
-}
-
-.cookie-content .cookie-buttons{
-    margin-top: 10px;
-}
-
-.accept {
-    background-color: #d4ba61;
-    color: white;
-}
-
-.accept:hover {
-    background-color: #cac16c;
-}
-
-.reject {
-    background-color: linear-gradient(to right, #3b3b3b, #b3b3b3);
-    color: white;
-}
-
-.reject:hover {
-    background-color: linear-gradient(to right, #646464, #b3b3b3);
-}
-
-.settings {
-    background-color: #ffa000;
-    color: white;
-}
-
-.settings:hover {
-    background-color: #ff8f00;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-
-
-
-/* ===== Responsive */
-
-@media(max-width: 810px){
-    .main.container{
-        display: flex;
+    .box1 .top {
         flex-direction: column;
+        text-align: center;
     }
 
-    .box{
-        margin: 10px 20px;
-        width: 100%;
+    .box2 .case .icon {
+        margin-right: 8px;
     }
+}
 
-    .box1{
-        margin-top: 70px;
-    }
+/* Prevent Content Overflow */
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
 
-    .box2{
-        grid-template-columns: 1fr;
-        margin-bottom: 220px;
-    }
+img {
+    max-width: 100%;
+    height: auto;
+}
 
-    .email-box {
-        grid-column: auto;
-    }
+/* Base hover styles */
+.box1:hover,
+.case:hover,
+.box6:hover,
+.lite:hover,
+.box8:hover {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-    .bottom-box {
-        grid-template-columns: 1fr;
-    }
+/* Dark Mode hover */
+.dark-mode .box1:hover,
+.dark-mode .case:hover,
+.dark-mode .box6:hover,
+.dark-mode .lite:hover,
+.dark-mode .box8:hover {
+    background: #1f1e1e !important;
+}
+
+/* White Mode hover */
+.white-mode .box1:hover,
+.white-mode .case:hover,
+.white-mode .box6:hover,
+.white-mode .lite:hover,
+.white-mode .box8:hover {
+    background: #f8f8f8 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+    transform: translateY(-1px);
+}
+
+/* White Mode für .lite */
+.white-mode .lite {
+    background: #ffffff;
+    border: 1px solid #8d8d8d;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+/* Enhanced Image Slider Styles */
+.box6 {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #1a1a1a;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    touch-action: pan-x;
+    will-change: transform;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    opacity: 0.8;
+    transition: opacity 0.5s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.dots {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 2;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.dot.active {
+    background: #fff;
+    transform: scale(1.2);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Progress Bar */
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 2;
+}
+
+.progress {
+    height: 100%;
+    background: #fff;
+    width: 0;
+    transition: width 0.3s linear;
+}
+
+/* Navigation Arrows */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(0.9);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+    opacity: 0;
+    backdrop-filter: blur(8px);
+}
+
+.box6:hover .slider-nav {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+.slider-nav:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+/* White mode specific styles */
+.white-mode .box6 {
+    background: #f8f8f8;
+}
+
+.white-mode .dots {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.white-mode .dot {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: transparent;
+}
+
+.white-mode .dot:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.white-mode .dot.active {
+    background: #000;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.white-mode .progress-bar {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.white-mode .progress {
+    background: #000;
+}
+
+.white-mode .slider-nav {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.white-mode .slider-nav:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Loading animation */
+.slide-loading {
+    position: relative;
+}
+
+.slide-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
