@@ -349,3 +349,36 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// Verbesserte und bereinigte Version des Codes
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modeToggle = document.getElementById("mode-toggle");
+    const body = document.body;
+    const boxes = document.querySelectorAll(".box3, .box4, .box5");
+    const darkImages = document.querySelectorAll(".dark");
+    const whiteImages = document.querySelectorAll(".white");
+
+    function switchMode() {
+        const isDarkMode = body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+        updateImages(isDarkMode);
+    }
+
+    function updateImages(isDarkMode) {
+        darkImages.forEach(img => img.style.display = isDarkMode ? "block" : "none");
+        whiteImages.forEach(img => img.style.display = isDarkMode ? "none" : "block");
+    }
+
+    modeToggle.addEventListener("click", switchMode);
+
+    // Initialisiere das Theme basierend auf LocalStorage
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        body.classList.add("dark-mode");
+        updateImages(true);
+    } else {
+        updateImages(false);
+    }
+
+    console.log("Theme geladen: " + savedTheme);
+});
