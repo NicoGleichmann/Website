@@ -7,6 +7,7 @@ let isDarkMode = true;
 document.addEventListener('DOMContentLoaded', () => {
     body.classList.add('dark-mode'); // Falls du eine CSS-Klasse für Dark Mode hast
     themeButton.textContent = '☀️'; // Setzt das richtige Symbol
+    toggleFacebookImage(); // Bild für den initialen Modus setzen
 });
 
 // Theme Toggle
@@ -18,10 +19,69 @@ themeButton.addEventListener('click', () => {
         themeButton.textContent = '☀️';
     } else {
         body.classList.remove('dark-mode');
-        body.classList.toggle('white-mode');
+        body.classList.add('white-mode');
         themeButton.textContent = '🌙';
     }
+    toggleFacebookImage(); // Bild je nach Mode wechseln
 });
+
+// Funktion, die das Bild je nach Modus anpasst
+function toggleFacebookImage() {
+    const facebookW = document.getElementById('facebook-w');
+    const facebookD = document.getElementById('facebook-d');
+    const youtubeW = document.getElementById('youtube-w');
+    const youtubeD = document.getElementById('youtube-d');
+    const black_01 = document.getElementById('black_01');
+    const white_01 = document.getElementById('white_01');
+    const black_02 = document.getElementById('black_02');
+    const white_02 = document.getElementById('white_02');
+    const black_03 = document.getElementById('black_03');
+    const white_03 = document.getElementById('white_03');
+    const black_04 = document.getElementById('black_04');
+    const white_04 = document.getElementById('white_04');
+    const black_05 = document.getElementById('black_05');
+    const white_05 = document.getElementById('white_05');
+    const black_06 = document.getElementById('black_06');
+    const white_06 = document.getElementById('white_06');
+
+    if (body.classList.contains('dark-mode')) {
+        facebookW.style.display = 'block';
+        facebookD.style.display = 'none';
+        youtubeW.style.display = 'block';
+        youtubeD.style.display = 'none';
+        black_01.style.display = 'block';
+        white_01.style.display = 'none';
+        black_02.style.display = 'block';
+        white_02.style.display = 'none';
+        black_03.style.display = 'block';
+        white_03.style.display = 'none';
+        black_04.style.display = 'block';
+        white_04.style.display = 'none';
+        black_05.style.display = 'block';
+        white_05.style.display = 'none';
+        black_06.style.display = 'block';
+        white_06.style.display = 'none';
+    } else {
+        facebookW.style.display = 'none';
+        facebookD.style.display = 'block';
+        youtubeW.style.display = 'none';
+        youtubeD.style.display = 'block';
+        black_01.style.display = 'none';
+        white_01.style.display = 'block';
+        black_02.style.display = 'none';
+        white_02.style.display = 'block';
+        black_03.style.display = 'none';
+        white_03.style.display = 'block';
+        black_04.style.display = 'none';
+        white_04.style.display = 'block';
+        black_05.style.display = 'none';
+        white_05.style.display = 'block';
+        black_06.style.display = 'none';
+        white_06.style.display = 'block';
+    }
+}
+
+
 
 //Input Focus entfernen
 document.addEventListener("click", (event) => {
@@ -34,6 +94,8 @@ document.addEventListener("click", (event) => {
 });
 
 
+
+
 //BOX 4 BILDER
 document.addEventListener("DOMContentLoaded", () => {
     const images = document.querySelectorAll(".box4 img");
@@ -41,12 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
         img.style.boxShadow = "inset 0 0 10px rgba(255, 255, 255, 1)";
     });
 });
-
-
-
-//Insta Box
-
-
 
 
 
@@ -102,10 +158,11 @@ document.addEventListener("click", (event) => {
   if (target.classList.contains("case")) {
       const url = target.getAttribute("data-link"); // Link aus dem Attribut
       if (url) {
-          window.open(url, "_blank"); // Öffnet Link in neuem Tab
+          window.open(url, "_self"); // Öffnet Link in neuem Tab
       }
   }
 });
+
 
 
 
@@ -121,8 +178,6 @@ window.addEventListener('wheel', (e) => {
         e.preventDefault();
     }
 })
-
-
 
 container.addEventListener("mousedown", (e) => {
   if (e.target.tagName.toLowerCase() === "input" || e.target.tagName.toLowerCase() === "textarea") {
@@ -159,7 +214,6 @@ container.addEventListener("mousemove", (e) => {
 
 
 //COOKIE BANNER
-
 document.addEventListener('DOMContentLoaded', () => {
     const cookieBanner = document.querySelector('.cookie-banner');
     const acceptBtn = document.querySelector('.accept');
@@ -229,6 +283,9 @@ function getCookie(name) {
 
 // Alert
 //alert("Nutze das Mausrad zum scrollen des Bildschirms!");
+
+
+
 
 // Image Slider
 document.addEventListener('DOMContentLoaded', () => {
@@ -349,36 +406,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Verbesserte und bereinigte Version des Codes
-
-document.addEventListener("DOMContentLoaded", function () {
-    const modeToggle = document.getElementById("mode-toggle");
-    const body = document.body;
-    const boxes = document.querySelectorAll(".box3, .box4, .box5");
-    const darkImages = document.querySelectorAll(".dark");
-    const whiteImages = document.querySelectorAll(".white");
-
-    function switchMode() {
-        const isDarkMode = body.classList.toggle("dark-mode");
-        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-        updateImages(isDarkMode);
-    }
-
-    function updateImages(isDarkMode) {
-        darkImages.forEach(img => img.style.display = isDarkMode ? "block" : "none");
-        whiteImages.forEach(img => img.style.display = isDarkMode ? "none" : "block");
-    }
-
-    modeToggle.addEventListener("click", switchMode);
-
-    // Initialisiere das Theme basierend auf LocalStorage
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-        body.classList.add("dark-mode");
-        updateImages(true);
-    } else {
-        updateImages(false);
-    }
-
-    console.log("Theme geladen: " + savedTheme);
-});

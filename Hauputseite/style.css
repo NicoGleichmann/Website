@@ -61,9 +61,13 @@ html, body {
 .dark-mode .box1:hover,
 .dark-mode .case:hover,
 .dark-mode .box6:hover,
-.dark-mode .lite:hover,
 .dark-mode .box8:hover {
     background: #1f1e1e !important;
+}
+
+.dark-mode .box7 .lite:hover{
+    cursor: pointer;
+    background: #1f1e1e;
 }
 
 /* Dark Mode Styles */
@@ -92,9 +96,7 @@ body.white-mode {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.dark, .white {
-    display: none;
-}
+
 
 
 /* WHITE MODE Hintergrund */
@@ -105,15 +107,18 @@ body.white-mode {
 
 /* Boxen im White Mode */
 .white-mode .box1,
+.white-mode .case,
 .white-mode .box3,
 .white-mode .box5,
 .white-mode .box6,
-.white-mode .lite,
 .white-mode .box8 {
     background: #ffffff; /* Reinweiß für klare Struktur */
     border: 1px solid #8d8d8d; /* Dezente Umrandung */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Weicher Schatten für Tiefe */
 }
+
+
+
 
 /* Textfarben für bessere Sichtbarkeit */
 .white-mode h1, 
@@ -122,6 +127,7 @@ body.white-mode {
 .white-mode h4, 
 .white-mode .case,
 .white-mode p,
+.white-mode a,
 .white-mode .username,
 .white-mode .case .text .followers,
 .white-mode .box1 .mid h2 {
@@ -129,9 +135,6 @@ body.white-mode {
 }
 
 /* Links & Icons */
-.white-mode a {
-    color: #0066cc; /* Dezentes Blau für Links */
-}
 .white-mode a:hover {
     color: #004499; /* Dunkleres Blau beim Hover */
 }
@@ -140,22 +143,14 @@ body.white-mode {
 .white-mode .box1:hover,
 .white-mode .case:hover,
 .white-mode .box6:hover,
-.white-mode .lite:hover,
-.white-mode .box8:hover {
-    background: #f8f8f8 !important;
+.white-mode .box8:hover,
+.white-mode .box7 .lite:hover {
+    background: #d4d4d4 !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
-    transform: translateY(-1px);
+    transform: translateY(-3px);
 }
 
-/* White Mode für .lite */
-.white-mode .lite {
-    background: #ffffff;
-    border: 1px solid #8d8d8d;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
-    padding: 20px;
-    border-radius: 20px;
-}
+/*=================================*/
 
 
 
@@ -518,6 +513,8 @@ body.white-mode {
     font-size: 0.9rem;
     color: #bbb;
 }
+
+
 
 /* Full-width email box */
 .email-box {
@@ -1002,7 +999,7 @@ body.white-mode {
     background-color: #111;
     border-radius: 20px;
     padding: 30px;
-    height: 165px;
+    height: 163.5px;
     margin: 12px 12px 12px 8px;
 
     display: flex;
@@ -1012,9 +1009,14 @@ body.white-mode {
     transition: background-color 0.4s ease-in-out; /* Übergangseffekt für den Farbwechsel */
 }
 
-.box7 .lite:hover{
-    cursor: pointer;
-    background: #1f1e1e;
+/* White Mode für .lite */
+body.white-mode .lite {
+    background: #ffffff;
+    border: 1px solid #8d8d8d;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 /* ========== */
