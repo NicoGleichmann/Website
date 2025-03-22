@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400;500;600;700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&family=Orbitron:wght@400..900&family=Playpen+Sans:wght@100;200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+/* Allgemeines Styling */
+body {
+    font-family: "Poppins", serif;
+    transition: background 0.3s, color 0.3s;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+
+
+
+
+/* Header Styling */
+header {
+    color: white;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Logo */
+.logo img {
+    width: 50px;
+    border-radius: 30%;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f4a261;
+}
+
+/* Icons */
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Dark Mode Button */
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s;
+}
+
+#theme-toggle:hover {
+    color: #f4a261;
+}
+
+/* Einkaufswagen */
+.cart-icon img{
+    width: 35px;
+    color: white;
+    transition: color 0.3s;
+}
+
+.cart-icon:hover {
+    color: #f4a261;
+}
+
+/* Dark Mode Styling */
+.dark-mode header {
+    color: #333;
+}
+
+.dark-mode nav ul li a,
+.dark-mode #theme-toggle,
+.dark-mode .cart-icon {
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.dark-mode nav ul li a:hover,
+.dark-mode #theme-toggle:hover,
+.dark-mode .cart-icon:hover {
+    color: #f4a261;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+/* White Mode */
+body.white-mode {
+    background-color: white;
+    color: black;
+}
+
+/* Einkaufswagen */
+.cart-icon img {
+    width: 30px; /* Größe anpassen */
+    padding-top: 11px;
+    height: auto;
+    transition: opacity 0.3s;
+}
+
+.cart-icon img:hover {
+    opacity: 0.7; /* Kleiner Hover-Effekt */
+}
+
+
+
+
+/* Produkte */
+#products{
+    margin: 150px 0 100px 0;
+}
+
+.product-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product {
+    background: #fff;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+body.dark-mode .product {
+    background: #222;
+    color: white;
+}
+
+
+
+
+/* About Lumio Section */
+#about {
+    background-color: #1a1919; /* Exakte Hintergrundfarbe */
+    color: #e0e0e0;
+    text-align: center;
+    padding: 60px 20px;
+    margin: 50px 0;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-icon {
+    width: 40px;
+    margin-bottom: 10px;
+    border-radius: 30%;
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #c0c0c0;
+}
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: #c0c0c0;
+    font-size: 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ffffff;
+}
+
+
+#social-media{
+    text-align: center;
+    margin: 80px 0;
+}
+
+/* Kontaktformular */
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+}
+
+input, textarea {
+    padding: 10px;
+    margin: 5px 0;
+}
+
+button {
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+
+#contact{
+    margin: 100px 0;
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: #0d0d0d;
+    color: #e0e0e0;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    align-items: center;
+}
+
+.footer-logo{
+    margin-right: 150px;
+}
+
+.footer-logo img {
+    width: 50px;
+    margin-bottom: 10px;
+    border-radius: 30%;
+    color: #e0e0e0;
+}
+
+.footer-logo p {
+    font-size: 14px;
+    color: #a0a0a0;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.footer-column {
+    margin: 0 20px;
+    text-align: left;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}

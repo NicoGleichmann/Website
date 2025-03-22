@@ -1,11 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lumio - Smart Shopping</title>
+    <link rel="stylesheet" href="/business/business.css">
 </head>
-<body>
-    <h1>Willkommen auf meiner Business-Seite</h1>
+<body class="dark-mode">
+    <header>
+        <div class="container">
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <img src="/img/logo_w.png" alt="Lumio Logo">
+            </a>
+    
+            <!-- Navigation -->
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+    
+            <!-- Icons -->
+            <div class="header-icons">
+                <button id="theme-toggle">🌙</button> <!-- Dark Mode Button -->
+                <a href="#" class="cart-icon">
+                    <img src="/img/shopping_cart.png" alt="Cart">
+                </a>
+            </div>
+        </div>
+    </header>    
+    
+
+    <section class="main">
+        
+    </section>
+
+    <section id="products">
+        <h2>Unsere Produkte</h2>
+        <div class="product-container">
+            <div class="product">
+                <img src="img/product1.png" alt="Produkt 1">
+                <h3>Produkt 1</h3>
+                <p>Hochwertige Smart-Gadgets</p>
+                <button>Kaufen</button>
+            </div>
+            <div class="product">
+                <img src="img/product2.png" alt="Produkt 2">
+                <h3>Produkt 2</h3>
+                <p>Innovative Haushaltsgeräte</p>
+                <button>Kaufen</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-container">
+            <img src="/img/logo_w.png" alt="Lumio Icon" class="about-icon">
+            <h2>About Lumio</h2>
+            <p>At Lumio, we believe in bringing innovation to your everyday life. Our carefully curated selection of 
+                products combines cutting-edge technology with elegant design, ensuring that you get the best of both worlds.
+            </p>
+            <div class="social-icons">
+                <a href="#" target="_blank"><img src="/img/instagram_w.png" id="instagram-icon"></a>
+                <a href="#" target="_blank"><img src="/img/facebook_w.png" id="facebook-icon"></a>
+                
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="social-media">
+        <h2>Folge uns</h2>
+        <a href="#" target="_blank"><img src="/img/facebook_w.png" id="facebook-icon"></a>
+        <a href="#" target="_blank"><img src="/img/instagram_w.png" id="instagram-icon"></a>
+    </section>
+
+    <section id="contact">
+        <h2>Kontakt</h2>
+        <form>
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="E-Mail" required>
+            <textarea placeholder="Deine Nachricht" required></textarea>
+            <button type="submit">Senden</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="/img/logo_w.png" alt="Lumio Logo">
+                <p>© 2025 Lumio, Inc.<br>All rights reserved.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Company Info</h3>
+                    <ul>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="script.js"></script>
 </body>
 </html>
