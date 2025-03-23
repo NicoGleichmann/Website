@@ -27,7 +27,7 @@
             <!-- Icons -->
             <div class="header-icons">
                 <button id="theme-toggle">🌙</button> <!-- Dark Mode Button -->
-                <a href="#" class="cart-icon">
+                <a href="/business/einkaufswagen/einkaufwagen.html" class="cart-icon">
                     <img src="/img/shopping_cart.png" alt="Cart">
                 </a>
             </div>
@@ -35,27 +35,26 @@
     </header>    
     
 
-    <section class="main">
-        
-    </section>
-
     <section id="products">
         <h2>Unsere Produkte</h2>
         <div class="product-container">
-            <div class="product">
-                <img src="img/product1.png" alt="Produkt 1">
+            <div class="product" data-id="1" data-name="Produkt 1" data-price="29.99">
+                <img src="/img/d01.jpg" alt="Produkt 1">
                 <h3>Produkt 1</h3>
                 <p>Hochwertige Smart-Gadgets</p>
-                <button>Kaufen</button>
+                <p class="price">29.99€</p>
+                <button class="add-to-cart">➕ Zum Warenkorb</button>
             </div>
-            <div class="product">
-                <img src="img/product2.png" alt="Produkt 2">
+            <div class="product" data-id="2" data-name="Produkt 2" data-price="49.99">
+                <img src="/img/d08.jpg" alt="Produkt 2">
                 <h3>Produkt 2</h3>
                 <p>Innovative Haushaltsgeräte</p>
-                <button>Kaufen</button>
+                <p class="price">49.99€</p>
+                <button class="add-to-cart">➕ Zum Warenkorb</button>
             </div>
         </div>
     </section>
+
 
     <section id="about">
         <div class="about-container">
@@ -132,5 +131,6 @@
     
 
     <script src="script.js"></script>
+    <script src="business.js"></script>
 </body>
 </html>

@@ -158,6 +158,18 @@ body.white-mode {
     transition: transform 0.3s;
 }
 
+.product img{
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product img:hover{
+    scale: 1.1;
+    transition: 0.3s;
+}
+
 .product:hover {
     transform: scale(1.05);
 }
@@ -167,6 +179,19 @@ body.dark-mode .product {
     color: white;
 }
 
+.add-to-cart {
+    background: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.add-to-cart:hover {
+    background: #e68900;
+}
 
 
 
@@ -321,4 +346,117 @@ footer {
 .footer-column ul li a:hover {
     color: #ffffff;
     text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Einkaufswagen */
+.cart-icon img {
+    width: 30px; /* Größe anpassen */
+    padding-top: 11px;
+    height: auto;
+    transition: opacity 0.3s;
+}
+
+.cart-icon img:hover {
+    opacity: 0.7; /* Kleiner Hover-Effekt */
+}
+
+.cart-container {
+    text-align: center;
+    margin-top: 130px;
+}
+
+#cart-items {
+    margin: 20px auto;
+    padding: 20px;
+    background: #222;
+    border-radius: 8px;
+    max-width: 400px;
+}
+
+#checkout-btn {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+#checkout-btn:hover {
+    background: #e68900;
+}
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+
+.cart-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: #1c1c1e;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+}
+
+.remove-item {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.remove-item:hover {
+    color: #ff5555;
+}
+
+#total-price {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 10px;
+}
+
+#checkout-btn {
+    width: 100%;
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#checkout-btn:hover {
+    background: #45a049;
 }
