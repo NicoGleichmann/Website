@@ -71,6 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Weiter zur Kasse
     document.getElementById("checkout-btn").addEventListener("click", () => {
-        window.location.href = "checkout.html";
+        window.location.href = "/business/einkaufswagen/checkout/checkout.html";
     });
 });
+
+
+

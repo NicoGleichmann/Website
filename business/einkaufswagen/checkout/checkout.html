@@ -4,18 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bezahlen - Lumio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/business/einkaufswagen/checkout/checkout.css">
 </head>
 <body class="dark-mode">
     <header>
-        <a href="index.html" class="logo">
-            <img src="img/logo.png" alt="Lumio Logo">
+        <a href="/business/business.html" class="logo">
+            <img src="/img/logo_w.png" alt="Lumio Logo">
         </a>
         <h1>Bezahlen</h1>
     </header>
 
     <main class="checkout-container">
-        <h2>Bestellung abschließen</h2>
+        <div class="checkout-container">
+            <h2>Wähle deine Zahlungsmethode</h2>
+            
+            <select id="payment-method">
+                <option value="creditcard">💳 Kreditkarte</option>
+                <option value="paypal">🅿️ PayPal</option>
+                <option value="applepay">🍏 Apple Pay</option>
+            </select>
+        
+            <div id="payment-form">
+                <h2>Bestellung abschließen</h2>
         <form id="payment-form">
             <label for="name">Name</label>
             <input type="text" id="name" required>
@@ -30,8 +40,12 @@
                 <option value="klarna">Klarna</option>
             </select>
 
-            <button type="submit">Zahlung abschließen</button>
         </form>
+            </div>
+        
+            <button id="pay-now">Jetzt bezahlen</button>
+            <a href="/business/einkaufswagen/einkaufwagen.html" class="back-link">⬅ Zurück zum Warenkorb</a>
+        </div>
     </main>
 
     <script>
@@ -39,7 +53,7 @@
             event.preventDefault();
             alert("Vielen Dank für deine Bestellung! 🎉");
             localStorage.removeItem("cart"); // Warenkorb leeren
-            window.location.href = "index.html"; // Zurück zur Startseite
+            window.location.href = "/business/business.html"; // Zurück zur Startseite
         });
     </script>
 </body>

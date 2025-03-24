@@ -1,0 +1,158 @@
+/* --- Allgemeine Stile --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #fff;
+}
+
+/* --- Header --- */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: #1E1E1E;
+    border-bottom: 2px solid #2E2E2E;
+}
+
+.logo img {
+    height: 40px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* --- Container für Warenkorb und Checkout --- */
+.cart-container, .checkout-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #1C1C1E;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* --- Warenkorb-Items --- */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #444;
+    transition: all 0.3s ease-in-out;
+}
+
+.cart-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    padding-left: 5px;
+}
+
+.remove-item {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 12px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.remove-item:hover {
+    color: #ff5555;
+}
+
+/* --- Gesamtpreis --- */
+#total-price {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+    color: #FFD700;
+}
+
+/* --- Buttons --- */
+button, .back-link {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #4CAF50, #2E8B57);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+button:hover, .back-link:hover {
+    background: linear-gradient(45deg, #45a049, #1C7740);
+}
+
+/* --- Checkout-Formular --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    font-weight: bold;
+    color: #ccc;
+}
+
+input, select {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background: #222;
+    color: #fff;
+    font-size: 16px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #FFD700;
+    box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.3);
+}
+
+/* --- Mobile-Optimierung --- */
+@media (max-width: 768px) {
+    .cart-container, .checkout-container {
+        width: 90%;
+    }
+}
+
+#payment-method {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+    border: 1px solid #444;
+    margin-bottom: 15px;
+}
+
+#payment-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    background: #1E1E1E;
+    border: 1px solid #444;
+    color: #fff;
+}
+
+#payment-form p {
+    background: #2E2E2E;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
