@@ -7,67 +7,241 @@ body {
     padding: 0;
     margin: 0;
     text-align: center;
-}
-
-
-
-
-
-/* Header Styling */
-header {
     color: white;
-    padding: 15px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* Hauptcontainer */
 .container {
+    width: 90%;
+    max-width: 1200px;
+    background: linear-gradient(to top, #131314, #222222);
+    border-radius: 5px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10vh auto;
+    padding: 9vw;
+    text-align: center;
+    position: relative;
+}
+
+/* Header */
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 1460px; /* Begrenzung auf Containergröße */
 }
 
 /* Logo */
-.logo img {
-    width: 50px;
-    border-radius: 30%;
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
 }
 
 /* Navigation */
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
+nav {
+    width: 100%;
 }
 
+nav ul {
+    display: flex;
+    justify-content: flex-end; /* Verhindert Überlaufen */
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap; /* Falls der Platz nicht reicht, bricht es um */
+}
+
+/* Links in der Navigation */
 nav ul li {
-    display: inline;
+    display: inline-block;
 }
 
 nav ul li a {
     text-decoration: none;
     color: white;
-    font-size: 16px;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: 0.3s;
 }
 
 nav ul li a:hover {
-    color: #f4a261;
+    opacity: 0.7;
 }
 
-/* Icons */
-.header-icons {
+/* Dark Mode Button */
+.theme-button {
+    background: none;
+    border: 2px solid white;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
     display: flex;
     align-items: center;
+}
+
+.theme-button:hover {
+    background: white;
+    color: black;
+}
+
+/* Einkaufswagen-Icon */
+.cart-icon{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* Button & Einkaufswagen auf eine Linie mit den Links */
+nav ul li:last-child {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Lampe */
+.lamp-container {
+    position: absolute;
+    top: -90px;  /* weiter nach unten geschoben */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.lamp {
+    width: 120px;
+}
+
+/* Lichtstrahl */
+.light-effect {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(255, 255, 200, 0.5) 10%, rgba(0, 0, 0, 0) 80%);
+    filter: blur(50px);
+}
+
+/* Titel */
+.title-background {
+    font-size: 6rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
+    position: absolute; 
+    top: 17%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(4px);
+    z-index: 1;
+}
+
+.title-foreground {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+}
+
+/* Untertitel */
+.subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Info-Boxen */
+.info-boxes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 170px;
+    margin-bottom: -80px;
     gap: 20px;
 }
+
+.info-box {
+    background: rgba(30, 30, 30, 0.9);
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+    flex: 1;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.info-box:hover {
+    background: rgba(50, 50, 50, 0.9);
+}
+
+.number {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 1024px) {
+    .container {
+        padding: 5vw;
+    }
+    header {
+        padding: 15px 30px;
+    }
+    nav ul {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .theme-button {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 10vh auto;
+        text-align: center;
+    }
+    .cart-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
 
 /* Dark Mode Button */
 #theme-toggle {
@@ -77,10 +251,6 @@ nav ul li a:hover {
     cursor: pointer;
     color: white;
     transition: color 0.3s;
-}
-
-#theme-toggle:hover {
-    color: #f4a261;
 }
 
 /* Einkaufswagen */
@@ -94,35 +264,7 @@ nav ul li a:hover {
     color: #f4a261;
 }
 
-/* Dark Mode Styling */
-.dark-mode header {
-    color: #333;
-}
 
-.dark-mode nav ul li a,
-.dark-mode #theme-toggle,
-.dark-mode .cart-icon {
-    color: #fff;
-    transition: color 0.3s;
-}
-
-.dark-mode nav ul li a:hover,
-.dark-mode #theme-toggle:hover,
-.dark-mode .cart-icon:hover {
-    color: #f4a261;
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: #121212;
-    color: white;
-}
-
-/* White Mode */
-body.white-mode {
-    background-color: white;
-    color: black;
-}
 
 /* Einkaufswagen */
 .cart-icon img {
@@ -612,4 +754,34 @@ footer {
 
 #checkout-btn:hover {
     background: #45a049;
+}
+
+
+/* Dark Mode Styling */
+.dark-mode nav ul li a,
+.dark-mode #theme-toggle,
+.dark-mode .cart-icon {
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.dark-mode nav ul li a:hover,
+.dark-mode #theme-toggle:hover,
+.dark-mode .cart-icon:hover {
+    color: #f4a261;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+
+
+
+/* White Mode */
+body.white-mode {
+    background-color: white;
+    color: black;
 }

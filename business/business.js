@@ -77,3 +77,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+// Optional: Kleine Animation beim Laden der Seite
+document.addEventListener("DOMContentLoaded", () => {
+    const content = document.querySelector(".container");
+    content.style.opacity = "0";
+    content.style.transform = "translateY(20px)";
+    
+    setTimeout(() => {
+        content.style.transition = "0.8s";
+        content.style.opacity = "1";
+        content.style.transform = "translateY(0)";
+    }, 200);
+});
+
+
+
+// Dark Mode
+const themeButton = document.getElementById('theme-toggle');
+const body = document.body;
+let isDarkMode = true;
+
+// Dark Mode beim Laden aktivieren
+document.addEventListener('DOMContentLoaded', () => {
+    body.classList.add('dark-mode'); // Falls du eine CSS-Klasse für Dark Mode hast
+    themeButton.textContent = '☀️'; // Setzt das richtige Symbol
+    toggleFacebookImage(); // Bild für den initialen Modus setzen
+});
+
+// Theme Toggle
+themeButton.addEventListener('click', () => {
+    isDarkMode = !isDarkMode;
+    if (isDarkMode) {
+        body.classList.add('dark-mode');
+        body.classList.remove('white-mode');
+        themeButton.textContent = '☀️';
+    } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('white-mode');
+        themeButton.textContent = '🌙';
+    }
+    toggleFacebookImage(); // Bild je nach Mode wechseln
+});
+
+
+// Scroll Animation
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("nav ul li a").forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+            // Prüfen, ob der Link auf eine ID zeigt
+            if (this.getAttribute("href").startsWith("#")) {
+                e.preventDefault(); // Standard-Link-Verhalten verhindern
+
+                const targetId = this.getAttribute("href").substring(1); // ID extrahieren
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // 80px Abstand für Header
+                        behavior: "smooth", // Smooth Scroll Effekt
+                    });
+                }
+            }
+        });
+    });
+});

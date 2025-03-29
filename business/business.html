@@ -6,34 +6,54 @@
     <title>Lumio - Smart Shopping</title>
     <link rel="stylesheet" href="/business/business.css">
 </head>
-<body class="dark-mode">
-    <header>
-        <div class="container">
-            <!-- Logo -->
-            <a href="#" class="logo">
-                <img src="/img/logo_w.png" alt="Lumio Logo">
-            </a>
-    
-            <!-- Navigation -->
+<body>
+    <!-- Hauptcontainer -->
+    <div class="container">
+        
+        <!-- Lampe mit Licht -->
+        <div class="lamp-container">
+            <img src="/img/lampe.png" alt="Lampe" class="lamp">
+            <div class="light-effect"></div>
+        </div>
+
+        <!-- Navigation und Logo -->
+        <header>
+            <div class="logo">L</div>
             <nav>
                 <ul>
-                    <li><a href="/business/business.html">Home</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#products">PRODUCTS</a></li>
+                    <li><a href="#vision">VISION</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                    <button id="theme-toggle" class="theme-button">🌙</button>
+                    <img src="/img/shopping_cart.png" alt="Cart" class="cart-icon">
                 </ul>
             </nav>
-    
-            <!-- Icons -->
-            <div class="header-icons">
-                <button id="theme-toggle">🌙</button> <!-- Dark Mode Button -->
-                <a href="/business/einkaufswagen/einkaufwagen.html" class="cart-icon">
-                    <img src="/img/shopping_cart.png" alt="Cart">
-                </a>
+        </header>
+
+        <!-- Titel & Untertitel -->
+        <h1 class="title-background">LUMIO</h1>
+        <h2 class="title-foreground">L U M I O</h2>
+        <p class="subtitle">THE EVOLUTION STARTS NOW</p>
+
+        <!-- Info-Boxen -->
+        <div class="info-boxes">
+            <div class="info-box">
+                <span class="number">01.</span>
+                <h3>THE LIGHT</h3>
+                <p>"Licht ist mehr als Helligkeit – es ist Vision. Erleuchte deinen Weg mit Klarheit und Präzision."</p>
+            </div>
+            <div class="info-box">
+                <span class="number">02.</span>
+                <h3>THE ENERGY</h3>
+                <p>"Energie treibt uns voran. Dynamik, Innovation und unbegrenzte Möglichkeiten – entdecke, was möglich ist."</p>
+            </div>
+            <div class="info-box">
+                <span class="number">03.</span>
+                <h3>THE GLOW</h3>
+                <p>"Wahre Schönheit liegt im Detail. Fein abgestimmtes Design trifft auf pure Eleganz."</p>
             </div>
         </div>
-    </header>    
-    
+    </div>
 
     <section id="products">
         <h2>Unsere Produkte</h2>
@@ -172,3 +192,9 @@
     <script src="business.js"></script>
 </body>
 </html>
+
+
+<!-- Noch Machen 
+ 1. Responsive Design
+
+-->
