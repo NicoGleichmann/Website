@@ -141,3 +141,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+
+// Interaktive Auswahl
+// Smooth Scroll zu den Kategorien
+document.getElementById("light").addEventListener("click", function() {
+    document.getElementById("light-section").scrollIntoView({ behavior: "smooth" });
+});
+
+document.getElementById("energy").addEventListener("click", function() {
+    document.getElementById("energy-section").scrollIntoView({ behavior: "smooth" });
+});
+
+document.getElementById("glow").addEventListener("click", function() {
+    document.getElementById("glow-section").scrollIntoView({ behavior: "smooth" });
+});
+
+

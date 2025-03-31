@@ -254,29 +254,195 @@ p {
 }
 
 /* Einkaufswagen */
-.cart-icon img{
-    width: 35px;
-    color: white;
-    transition: color 0.3s;
-}
-
-.cart-icon:hover {
-    color: #f4a261;
-}
-
-
-
-/* Einkaufswagen */
-.cart-icon img {
-    width: 30px; /* Größe anpassen */
-    padding-top: 11px;
+.cart-icon {
+    width: 40px; /* Größe anpassen */
     height: auto;
+    padding-top: 11px;
     transition: opacity 0.3s;
 }
 
 .cart-icon img:hover {
     opacity: 0.7; /* Kleiner Hover-Effekt */
 }
+
+
+/* Übergangsbereich */
+.transition {
+    text-align: center;
+    padding: 150px 20px;
+    background: #0f0f0f;
+    position: relative;
+    overflow: hidden;
+    background-attachment: fixed;
+}
+
+.transition h2 {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.transition p {
+    font-size: 1.2em;
+    opacity: 0.8;
+}
+
+.lumio-text {
+    color: #FFD700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+/* Scroll-Down-Indikator */
+.scroll-down {
+    width: 30px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 25px;
+    margin: 20px auto 0;
+    position: relative;
+    animation: fadeIn 1.8s ease-in-out forwards;
+}
+
+.scroll-down::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    top: 10px;
+    animation: scrollAnim 1.5s infinite;
+}
+
+@keyframes scrollAnim {
+    0% { top: 10px; opacity: 1; }
+    100% { top: 30px; opacity: 0; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Story-Sektion */
+.story-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px;
+    background: #1a1a1a;
+    text-align: left;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.story-text {
+    width: 50%;
+}
+
+.story-text h1 {
+    font-size: 3em;
+}
+
+.story-text .lumio {
+    color: #FFD700; /* Goldene Farbe für das Logo */
+    font-weight: bold;
+}
+
+.story-text p {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+/* Interaktive Auswahl */
+.choices {
+    margin-top: 20px;
+}
+
+.choice-btn {
+    background: #333;
+    border: 2px solid #FFD700;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    margin: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.choice-btn::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: #FFD700;
+    transition: all 0.4s ease-in-out;
+}
+
+.choice-btn:hover::before {
+    left: 0;
+}
+
+.choice-btn:hover {
+    color: black;
+    font-weight: bold;
+}
+
+/* T-Shirt Vorschau */
+.story-image img {
+    width: 300px;
+    filter: brightness(0.8);
+    transition: 0.3s;
+}
+
+.story-image img:hover {
+    filter: brightness(1);
+}
+
+
+/* Kategorien */
+.category {
+    text-align: center;
+    padding: 100px;
+    font-size: 1.5em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.category:hover {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.light {
+    background: #f4e041;
+    color: black;
+}
+
+.energy {
+    background: #ff5733;
+    color: white;
+}
+
+.glow {
+    background: #a040ff;
+    color: white;
+}
+
+
+
 
 
 

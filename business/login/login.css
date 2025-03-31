@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400;500;600;700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&family=Orbitron:wght@400..900&family=Playpen+Sans:wght@100;200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+/* Allgemeine Stile */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #18191A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 40px;
+    background: rgba(30, 30, 32, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Login-Bereich */
+.login-box {
+    width: 60%;
+    /*padding: 80px;*/
+}
+
+h2 {
+    color: #fff;
+    margin-bottom: 32px;
+}
+
+label {
+    display: block;
+    color: #bbb;
+    margin: 10px 0 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    background: #252627;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+}
+
+input:focus {
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Passwort-Feld */
+.password-container {
+    position: relative;
+    margin-top: 30px;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #bbb;
+}
+
+.password-icon {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+.forgot-password{
+    display: block;
+    color: #bbb;
+    margin-top: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.forgot-password:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Button */
+.btn {
+    width: 100%;
+    padding: 18px;
+    margin-top: 20px;
+    background: linear-gradient(90deg, #606c88, #3f4c6b);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #3f4c6b, #606c88);
+}
+
+/* Registrierungs-Link */
+.signup-text {
+    text-align: center;
+    margin-top: 20px;
+    color: #bbb;
+    margin-top: 150px;
+}
+
+.signup-text a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+/* Bild-Bereich */
+.image-box {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Abstand zum Rand */
+}
+
+.image-box img {
+    width: 100%; /* Bildgröße */
+    max-width: 400px; /* Maximale Breite */
+    border-radius: 10px;
+}
+
+/* Animation-Bereich */
+.animation-box {
+    width: 50%;
+    background: black;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 9px; /* Abstand zum Container-Rand */
+    border-radius: 15px;
+}
+
+/* Planeten */
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, #a3c0ff, #28334d);
+}
+
+.planet1 {
+    width: 60px;
+    height: 60px;
+    top: 40%;
+    left: 40%;
+    animation: float 5s infinite ease-in-out;
+}
+
+.planet2 {
+    width: 30px;
+    height: 30px;
+    top: 20%;
+    right: 20%;
+    animation: float 6s infinite ease-in-out;
+}
+
+/* Sterne */
+.stars {
+    width: 100%;
+    height: 100%;
+    background: url('stars.png');
+    position: absolute;
+    animation: twinkle 10s infinite linear;
+}
+
+/* Animationen */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+/* Logo */
+.comet-logo {
+    position: absolute;
+    bottom: 10px;
+    color: white;
+    font-size: 18px;
+}
+
+

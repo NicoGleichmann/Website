@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/business/login/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form>
+                <label for="email">Deine Email</label>
+                <input type="email" id="email" placeholder="your@email.com">
+                
+                <div class="password-container">
+                    <label for="password">Dein Passwort</label>
+            
+                    <div class="password-wrapper">
+                        <input type="password" id="password" placeholder="Dein Passwort...">
+                        <!-- Passwort-Toggle mit Bild -->
+                        <img src="/img/visibility.png" id="togglePassword" class="password-icon" alt="Toggle Password">
+                    </div>
+                    <a href="#" class="forgot-password">Passwort vergessen?</a>
+                </div>
+                
+                <button type="submit" class="btn">Login</button>
+                <p class="signup-text">Noch kein Account? <a href="#">Registrieren</a></p>
+            </form>
+        </div>
+        <div class="image-box">
+            <img src="/img/login.jpg" alt="Login Image">
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
