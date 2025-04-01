@@ -18,10 +18,10 @@
 
         <!-- Navigation und Logo -->
         <header>
-            <div class="logo">L</div>
+            <div class="logo"><img src="/img/logo_w.png" alt="Lumio Logo"></div>
             <nav>
                 <ul>
-                    <li><a href="#products">PRODUCTS</a></li>
+                    <li><a href="#shop">PRODUKTE</a></li>
                     <li><a href="#vision">VISION</a></li>
                     <li><a href="#contact">CONTACT</a></li>
                     <button id="theme-toggle" class="theme-button">🌙</button>
@@ -90,6 +90,7 @@
             <img src="/img/d01.jpg" alt="Lumio T-Shirt">
         </div>
     </section>
+
     <!-- Die 3 Kategorien -->
     <section id="light-section" class="category light">
         <h2>🔆 LIGHT – Klare Vision</h2>
@@ -107,44 +108,73 @@
     </section>
 
 
-
-    <section id="products">
+    <section class="product-section" id="shop">
         <h2>Unsere Produkte</h2>
+    
+        <!-- Kategorie-Filter -->
+        <div class="filter-buttons">
+            <button data-filter="all" class="active">Alle</button>
+            <button data-filter="light">Light</button>
+            <button data-filter="energy">Energy</button>
+            <button data-filter="glow">Glow</button>
+        </div>
+    
         <div class="product-container">
-            <div class="product" data-id="1" data-name="Produkt 1" data-price="29.99">
-                <img src="/img/d01.jpg" alt="Produkt 1">
+            <div class="product-card" data-category="light">
+                <img src="/img/d02.png" alt="Produkt 1" loading="lazy">
                 <h3>Produkt 1</h3>
                 <p>Hochwertige Smart-Gadgets</p>
-                <p class="price">29.99€</p>
-                <button class="add-to-cart">➕ Zum Warenkorb</button>
+                <span>29.99€</span>
+                <button class="buy-button">+ Zum Warenkorb</button>
             </div>
-            <div class="product" data-id="2" data-name="Produkt 2" data-price="49.99">
-                <img src="/img/d08.jpg" alt="Produkt 2">
+            <div class="product-card" data-category="energy">
+                <img src="/img/d02.png" alt="Produkt 2" loading="lazy">
                 <h3>Produkt 2</h3>
                 <p>Innovative Haushaltsgeräte</p>
-                <p class="price">49.99€</p>
-                <button class="add-to-cart">➕ Zum Warenkorb</button>
+                <span>49.99€</span>
+                <button class="buy-button">+ Zum Warenkorb</button>
             </div>
-            <div class="product" data-id="2" data-name="Produkt 2" data-price="49.99">
-                <img src="/img/d08.jpg" alt="Produkt 2">
-                <h3>Produkt 2</h3>
-                <p>Innovative Haushaltsgeräte</p>
-                <p class="price">49.99€</p>
-                <button class="add-to-cart">➕ Zum Warenkorb</button>
+            <div class="product-card" data-category="glow">
+                <img src="/img/d02.png" alt="Produkt 3" loading="lazy">
+                <h3>Produkt 3</h3>
+                <p>Minimalistisches Design</p>
+                <span>39.99€</span>
+                <button class="buy-button">+ Zum Warenkorb</button>
             </div>
-            <div class="product" data-id="2" data-name="Produkt 2" data-price="49.99">
-                <img src="/img/d08.jpg" alt="Produkt 2">
-                <h3>Produkt 2</h3>
-                <p>Innovative Haushaltsgeräte</p>
-                <p class="price">49.99€</p>
-                <button class="add-to-cart">➕ Zum Warenkorb</button>
+            <div class="product-card" data-category="glow">
+                <img src="/img/d02.png" alt="Produkt 3" loading="lazy">
+                <h3>Produkt 4</h3>
+                <p>Minimalistisches Design</p>
+                <span>39.99€</span>
+                <button class="buy-button">+ Zum Warenkorb</button>
             </div>
-            <div class="product" data-id="2" data-name="Produkt 2" data-price="49.99">
-                <img src="/img/d08.jpg" alt="Produkt 2">
-                <h3>Produkt 2</h3>
-                <p>Innovative Haushaltsgeräte</p>
-                <p class="price">49.99€</p>
-                <button class="add-to-cart">➕ Zum Warenkorb</button>
+            <div class="product-card" data-category="glow">
+                <img src="/img/d02.png" alt="Produkt 3" loading="lazy">
+                <h3>Produkt 5</h3>
+                <p>Minimalistisches Design</p>
+                <span>39.99€</span>
+                <button class="buy-button">+ Zum Warenkorb</button>
+            </div>
+            <div class="product-card" data-category="glow">
+                <img src="/img/d02.png" alt="Produkt 3" loading="lazy">
+                <h3>Produkt 6</h3>
+                <p>Minimalistisches Design</p>
+                <span>39.99€</span>
+                <button class="buy-button">+ Zum Warenkorb</button>
+            </div>
+            <div class="product-card" data-category="glow">
+                <img src="/img/d02.png" alt="Produkt 3" loading="lazy">
+                <h3>Produkt 7</h3>
+                <p>Minimalistisches Design</p>
+                <span>39.99€</span>
+                <button class="buy-button">+ Zum Warenkorb</button>
+            </div>
+            <div class="product-card" data-category="glow">
+                <img src="/img/d02.png" alt="Produkt 3" loading="lazy">
+                <h3>Produkt 8</h3>
+                <p>Minimalistisches Design</p>
+                <span>39.99€</span>
+                <button class="buy-button">+ Zum Warenkorb</button>
             </div>
         </div>
     </section>
@@ -183,10 +213,10 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Shop</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="/hauputseite/index.html">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 
@@ -224,6 +254,10 @@
     1. Responsive Design
     2. Login/Registration
     3. Einkaufswagen
+    4. Funktion Sachen in EInkaufswagen legen + Kontaktform Funktion
+    5. Cookie Funktion der Speicherung von Werten vom User auf der Seite - welches Team ist der User (Light/Energie/Glow), Einkaufwagen Sachen, was hat der User so auf der Seite gemacht...
+    6. festes Setzen Buttons Light/Energie/Glow (dass man nicht die Kategorien willkürlich wechseln kann sondern einmal eingewählt ist eingewählt fertig)
+    7. Footer
 
     -"Willkommen in der Welt von LUMIO" - Section Hintergrund gut so?
     -Farben für Kategorien zu krass?

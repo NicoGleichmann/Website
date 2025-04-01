@@ -1,50 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const cartButtons = document.querySelectorAll(".add-to-cart");
-
-    cartButtons.forEach(button => {
-        button.addEventListener("click", (event) => {
-            const productElement = event.target.closest(".product");
-            const product = {
-                id: productElement.dataset.id,
-                name: productElement.dataset.name,
-                price: parseFloat(productElement.dataset.price),
-                quantity: 1
-            };
-
-            // Überprüfen, ob Produkt schon im Warenkorb ist
-            const existingProduct = cart.find(item => item.id === product.id);
-            if (existingProduct) {
-                existingProduct.quantity++;
-            } else {
-                cart.push(product);
-            }
-
-            localStorage.setItem("cart", JSON.stringify(cart));
-            alert(`${product.name} wurde zum Warenkorb hinzugefügt!`);
-        });
-    });
-});
-
-
-
-
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const cartItemsContainer = document.getElementById("cart-items");
     const totalPriceElement = document.getElementById("total-price");
 
+    // Leerer Warenkorb
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = "<p>Dein Warenkorb ist leer.</p>";
         totalPriceElement.style.display = "none";
         return;
     }
 
+    // Warenkorb-Inhalt
     let totalPrice = 0;
     cart.forEach(item => {
         totalPrice += item.quantity * item.price;
@@ -73,6 +39,45 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("checkout-btn").addEventListener("click", () => {
         window.location.href = "/business/einkaufswagen/checkout/checkout.html";
     });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // MODAL für Geschichte
+    let modal = document.getElementById("historyModal");
+    let historyBtn = document.getElementById("historyButton"); // Bestehender Button
+    let closeModal = document.querySelector(".close");
+
+    if (historyBtn) {
+        historyBtn.onclick = function () {
+            modal.style.display = "flex";
+        };
+    }
+
+    closeModal.onclick = function () {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    // WARENKORB Sidebar
+    let cartSidebar = document.getElementById("cartSidebar");
+    let cartButton = document.getElementById("cartButton"); // Bestehender Button
+    let closeCart = document.querySelector(".close-cart");
+
+    if (cartButton) {
+        cartButton.onclick = function () {
+            cartSidebar.classList.add("open");
+        };
+    }
+
+    closeCart.onclick = function () {
+        cartSidebar.classList.remove("open");
+    };
 });
 
 
@@ -120,9 +125,9 @@ themeButton.addEventListener('click', () => {
 });
 
 
-// Scroll Animation
+// Scroll Animation nach unten 
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll("nav ul li a").forEach((anchor) => {
+    document.querySelectorAll("nav ul li a, footer .footer-container .footer-links .footer-column ul li a").forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
             // Prüfen, ob der Link auf eine ID zeigt
             if (this.getAttribute("href").startsWith("#")) {
@@ -159,3 +164,61 @@ document.getElementById("glow").addEventListener("click", function() {
 });
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".filter-buttons button");
+    const products = document.querySelectorAll(".product-card");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            const filter = button.getAttribute("data-filter");
+
+            // Setzt den aktiven Button
+            buttons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            // Zeigt/versteckt Produkte basierend auf der Auswahl
+            products.forEach(product => {
+                if (filter === "all" || product.getAttribute("data-category") === filter) {
+                    product.style.display = "block";
+                } else {
+                    product.style.display = "none";
+                }
+            });
+        });
+    });
+});
+
+
+// Pop-up-Funktion
+document.addEventListener("DOMContentLoaded", function () {
+    // Funktion für das Pop-up
+    function showPopup(message) {
+        let popup = document.createElement("div");
+        popup.classList.add("popup-message");
+        popup.textContent = message;
+        document.body.appendChild(popup);
+
+        setTimeout(() => {
+            popup.classList.add("show");
+        }, 100); // Leichte Verzögerung für den Effekt
+
+        setTimeout(() => {
+            popup.classList.remove("show");
+            setTimeout(() => popup.remove(), 500); // Entfernt das Element nach der Animation
+        }, 3000);
+    }
+
+    // === Interaktive Buttons ===
+    document.querySelectorAll(".choice-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+            let faction = this.textContent.trim();
+            showPopup(`Willkommen – du bist jetzt im Team ${faction}!`);
+        });
+    });
+
+    document.querySelectorAll(".buy-button").forEach((btn) => {
+        btn.addEventListener("click", function () {
+            showPopup("✅ Produkt wurde zum Einkaufswagen hinzugefügt!");
+        });
+    });
+});

@@ -47,6 +47,12 @@ header {
     color: white;
 }
 
+.logo img{
+    width: 40px;
+    display: block;
+    border-radius: 30%;
+}
+
 /* Navigation */
 nav {
     width: 100%;
@@ -236,10 +242,6 @@ p {
         margin: 10vh auto;
         text-align: center;
     }
-    .cart-icon {
-        width: 20px;
-        height: 20px;
-    }
 }
 
 
@@ -252,19 +254,6 @@ p {
     color: white;
     transition: color 0.3s;
 }
-
-/* Einkaufswagen */
-.cart-icon {
-    width: 40px; /* Größe anpassen */
-    height: auto;
-    padding-top: 11px;
-    transition: opacity 0.3s;
-}
-
-.cart-icon img:hover {
-    opacity: 0.7; /* Kleiner Hover-Effekt */
-}
-
 
 /* Übergangsbereich */
 .transition {
@@ -394,11 +383,6 @@ p {
     left: 0;
 }
 
-.choice-btn:hover {
-    color: black;
-    font-weight: bold;
-}
-
 /* T-Shirt Vorschau */
 .story-image img {
     width: 300px;
@@ -441,66 +425,134 @@ p {
     color: white;
 }
 
-
-
-
-
-
-
-/* Produkte */
-#products{
-    margin: 150px 0 100px 0;
+/* === POPUP-NACHRICHT STYLES === */
+.popup-message {
+    position: fixed;
+    top: -100px; /* Startet außerhalb des Bildschirms */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e1e1e;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 16px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 0, 0.5);
+    opacity: 0;
+    transition: top 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    z-index: 1000;
 }
 
+.popup-message.show {
+    top: 20px; /* Fährt nach unten ein */
+    opacity: 1;
+}
+
+/* === BUTTON ANIMATION === */
+.choice-btn, .buy-button {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+}
+
+.choice-btn:active, .buy-button:active {
+    transform: scale(0.95);
+}
+
+.choice-btn:hover, .buy-button:hover {
+    box-shadow: 0px 0px 15px rgba(255, 255, 0, 0.5);
+}
+
+
+
+
+/* Produkt-Section */
+.product-section {
+    padding: 50px 0;
+}
+
+/* Kategorie-Filter */
+.filter-buttons {
+    margin-bottom: 20px;
+}
+
+.filter-buttons button {
+    background: #1e1e1e;
+    color: #ffcc00;
+    border: 2px solid #ffcc00;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.filter-buttons button:hover, 
+.filter-buttons button.active {
+    background: #ffcc00;
+    color: #000;
+}
+
+/* FLEXIBLES GRID für die Produkte */
 .product-container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    flex-wrap: wrap; /* Zeilenumbruch, falls kein Platz */
+    justify-content: center; /* Zentriert die Elemente */
+    gap: 20px; /* Abstand zwischen den Produkten */
+    padding: 0 20px;
+    margin-top: 40px;
 }
 
-.product {
-    background: #fff;
-    color: black;
-    padding: 10px;
+/* Produkt-Karte im Neumorphism-Stil */
+.product-card {
+    background: #1e1e1e;
+    padding: 20px;
     border-radius: 10px;
-    transition: transform 0.3s;
+    box-shadow: 8px 8px 15px #0d0d0d, -8px -8px 15px #292929;
+    min-width: 150px; /* Mindestgröße */
+    max-width: 320px; /* Maximale Breite */
+    transition: all 0.3s ease-in-out;
+    margin: 10px;
 }
 
-.product img{
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.product img:hover{
-    scale: 1.1;
-    transition: 0.3s;
-}
-
-.product:hover {
+.product-card:hover {
     transform: scale(1.05);
+    box-shadow: 10px 10px 20px #0d0d0d, -10px -10px 20px #292929;
 }
 
-body.dark-mode .product {
-    background: #222;
-    color: white;
+/* Produkt-Bild */
+.product-card img {
+    width: 100%;
+    border-radius: 8px;
 }
 
-.add-to-cart {
-    background: #fff;
-    color: #333;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+/* Warenkorb-Button */
+.buy-button {
+    background: transparent;
+    border: 2px solid #ffcc00;
+    color: #ffcc00;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
     cursor: pointer;
-    transition: background 0.3s, color 0.3s;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
-.add-to-cart:hover {
-    background: #e68900;
+.buy-button:hover {
+    background: #ffcc00;
+    color: #000;
 }
 
+/* RESPONSIVE DESIGN für kleinere Bildschirme */
+@media (max-width: 900px) {
+    .product-card {
+        width: calc(50% - 40px); /* 2 Spalten bei mittlerer Bildschirmgröße */
+    }
+}
+
+@media (max-width: 600px) {
+    .product-card {
+        width: 100%; /* 1 Spalte für Mobile */
+    }
+}
 
 
 /* About Lumio Section */
