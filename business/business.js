@@ -1,84 +1,120 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const cartItemsContainer = document.getElementById("cart-items");
-    const totalPriceElement = document.getElementById("total-price");
+document.addEventListener("DOMContentLoaded", function () {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Leerer Warenkorb
-    if (cart.length === 0) {
-        cartItemsContainer.innerHTML = "<p>Dein Warenkorb ist leer.</p>";
-        totalPriceElement.style.display = "none";
-        return;
+    function updateCartUI() {
+        const cartItemsContainer = document.getElementById("cart-items");
+        const totalPrice = document.getElementById("total-price");
+
+        cartItemsContainer.innerHTML = "";
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = `<p class="empty-cart">🛒 Dein Warenkorb ist leer.</p>`;
+            totalPrice.innerHTML = `Insgesamt: 0.00€`;
+            return;
+        }
+
+        let total = 0;
+
+        cart.forEach((item, index) => {
+            let itemElement = document.createElement("div");
+            itemElement.classList.add("cart-item");
+            itemElement.innerHTML = `
+                <p>${item.name} - ${item.price.toFixed(2)}€</p>
+                <button class="remove-item" data-index="${index}">❌</button>
+            `;
+            cartItemsContainer.appendChild(itemElement);
+            total += item.price;
+        });
+
+        totalPrice.innerHTML = `Insgesamt: ${total.toFixed(2)}€`;
+
+        document.querySelectorAll(".remove-item").forEach((btn) => {
+            btn.addEventListener("click", function () {
+                let index = this.getAttribute("data-index");
+                cart.splice(index, 1);
+                saveCart();
+                updateCartUI();
+            });
+        });
     }
 
-    // Warenkorb-Inhalt
-    let totalPrice = 0;
-    cart.forEach(item => {
-        totalPrice += item.quantity * item.price;
-        const itemElement = document.createElement("div");
-        itemElement.classList.add("cart-item");
-        itemElement.innerHTML = `
-            <p>${item.name} - ${item.quantity}x - ${item.price.toFixed(2)}€</p>
-            <button class="remove-item" data-id="${item.id}">❌</button>
-        `;
-        cartItemsContainer.appendChild(itemElement);
-    });
+    document.querySelectorAll(".buy-button").forEach((btn) => {
+        btn.addEventListener("click", function () {
+            let productCard = this.closest(".product-card");
+            let productName = productCard.querySelector("h3").textContent;
+            let productPrice = parseFloat(productCard.querySelector("span").textContent.replace("€", ""));
+            let productImage = productCard.querySelector("/img/d01.jpg").src;
 
-    totalPriceElement.textContent = `Insgesamt: ${totalPrice.toFixed(2)}€`;
+            cart.push({ name: productName, price: productPrice });
+            saveCart();
+            updateCartUI();
 
-    // Entfernen-Funktion
-    document.querySelectorAll(".remove-item").forEach(button => {
-        button.addEventListener("click", (event) => {
-            const itemId = event.target.dataset.id;
-            const updatedCart = cart.filter(item => item.id !== itemId);
-            localStorage.setItem("cart", JSON.stringify(updatedCart));
-            location.reload();
+            showPopup(productName, productPrice, productImage);
         });
     });
 
-    // Weiter zur Kasse
-    document.getElementById("checkout-btn").addEventListener("click", () => {
-        window.location.href = "/business/einkaufswagen/checkout/checkout.html";
-    });
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    // MODAL für Geschichte
-    let modal = document.getElementById("historyModal");
-    let historyBtn = document.getElementById("historyButton"); // Bestehender Button
-    let closeModal = document.querySelector(".close");
-
-    if (historyBtn) {
-        historyBtn.onclick = function () {
-            modal.style.display = "flex";
-        };
-    }
-
-    closeModal.onclick = function () {
-        modal.style.display = "none";
-    };
-
-    window.onclick = function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
+    document.getElementById("checkout-btn").addEventListener("click", function () {
+        if (cart.length === 0) {
+            showNotification("❌ Dein Warenkorb ist leer!");
+        } else {
+            showNotification("✅ Du wirst zur Kasse weitergeleitet...");
+            setTimeout(() => {
+                window.location.href = "/checkout";
+            }, 2000);
         }
-    };
+    });
 
-    // WARENKORB Sidebar
-    let cartSidebar = document.getElementById("cartSidebar");
-    let cartButton = document.getElementById("cartButton"); // Bestehender Button
-    let closeCart = document.querySelector(".close-cart");
-
-    if (cartButton) {
-        cartButton.onclick = function () {
-            cartSidebar.classList.add("open");
-        };
+    function saveCart() {
+        localStorage.setItem("cart", JSON.stringify(cart));
     }
 
-    closeCart.onclick = function () {
-        cartSidebar.classList.remove("open");
-    };
+    function showPopup(name, price, image) {
+        const popupOverlay = document.getElementById("popup-overlay");
+        const popupContent = document.getElementById("popup-content");
+
+        popupContent.innerHTML = `
+            <div class="popup-header">
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="popup-body">
+                <img src="${image}" alt="${name}">
+                <div class="popup-info">
+                    <h3>${name}</h3>
+                    <p>${price.toFixed(2)}€</p>
+                    <button id="go-to-cart">Zum Warenkorb</button>
+                </div>
+            </div>
+        `;
+
+        popupOverlay.style.display = "flex";
+
+        document.querySelector(".close-btn").addEventListener("click", function () {
+            popupOverlay.style.display = "none";
+        });
+
+        document.getElementById("go-to-cart").addEventListener("click", function () {
+            window.location.href = "/cart";
+        });
+    }
+
+    function showNotification(message) {
+        const popup = document.createElement("div");
+        popup.classList.add("popup-message");
+        popup.textContent = message;
+        document.body.appendChild(popup);
+
+        setTimeout(() => {
+            popup.classList.add("fade-out");
+            setTimeout(() => popup.remove(), 500);
+        }, 2000);
+    }
+
+    if (document.getElementById("cart-items")) {
+        updateCartUI();
+    }
 });
+
+
 
 
 
