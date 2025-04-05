@@ -57,14 +57,14 @@
 
 
     <!-- Übergangsbereich -->
-    <section class="transition">
+    <section class="transition hidden">
         <h2>Willkommen in der Welt von <span class="lumio-text">LUMIO</span></h2>
         <p>Eine Reise durch Licht, Energie und Glow.</p>
         <div class="scroll-down"></div>
     </section>
 
     <!-- Story Sektion -->
-    <section class="story-section" id="vision">
+    <section class="story-section hidden" id="vision">
         <div class="story-text">
             <h1>Die Geschichte von <span class="lumio">LUMIO</span></h1>
             <p>
@@ -108,7 +108,7 @@
     </section>
 
 
-    <section class="product-section" id="shop">
+    <section class="product-section hidden" id="shop">
         <h2>Unsere Produkte</h2>
     
         <!-- Kategorie-Filter -->
@@ -122,6 +122,7 @@
         <div class="product-container">
             <div class="product-card" data-category="light">
                 <img src="/img/d02.png" alt="Produkt 1" loading="lazy">
+                <button><img src="/img/favorite.png" alt="Favorit" class="favorite"></button>
                 <h3>Produkt 1</h3>
                 <p>Hochwertige Smart-Gadgets</p>
                 <span>29.99€</span>
@@ -129,6 +130,7 @@
             </div>
             <div class="product-card" data-category="energy">
                 <img src="/img/d02.png" alt="Produkt 2" loading="lazy">
+                <button><img src="/img/favorite.png" alt="Favorit" class="favorite"></button>
                 <h3>Produkt 2</h3>
                 <p>Innovative Haushaltsgeräte</p>
                 <span>49.99€</span>
@@ -136,6 +138,7 @@
             </div>
             <div class="product-card" data-category="glow">
                 <img src="/img/d02.png" alt="Produkt 3" loading="lazy">
+                <button><img src="/img/favorite.png" alt="Favorit" class="favorite"></button>
                 <h3>Produkt 3</h3>
                 <p>Minimalistisches Design</p>
                 <span>39.99€</span>
@@ -143,6 +146,7 @@
             </div>
             <div class="product-card" data-category="glow">
                 <img src="/img/d02.png" alt="Produkt 3" loading="lazy">
+                <button><img src="/img/favorite.png" alt="Favorit" class="favorite"></button>
                 <h3>Produkt 4</h3>
                 <p>Minimalistisches Design</p>
                 <span>39.99€</span>
@@ -150,6 +154,7 @@
             </div>
             <div class="product-card" data-category="glow">
                 <img src="/img/d02.png" alt="Produkt 3" loading="lazy">
+                <button><img src="/img/favorite.png" alt="Favorit" class="favorite"></button>
                 <h3>Produkt 5</h3>
                 <p>Minimalistisches Design</p>
                 <span>39.99€</span>
@@ -157,6 +162,7 @@
             </div>
             <div class="product-card" data-category="glow">
                 <img src="/img/d02.png" alt="Produkt 3" loading="lazy">
+                <button><img src="/img/favorite.png" alt="Favorit" class="favorite"></button>
                 <h3>Produkt 6</h3>
                 <p>Minimalistisches Design</p>
                 <span>39.99€</span>
@@ -164,6 +170,7 @@
             </div>
             <div class="product-card" data-category="glow">
                 <img src="/img/d02.png" alt="Produkt 3" loading="lazy">
+                <button><img src="/img/favorite.png" alt="Favorit" class="favorite"></button>
                 <h3>Produkt 7</h3>
                 <p>Minimalistisches Design</p>
                 <span>39.99€</span>
@@ -171,6 +178,7 @@
             </div>
             <div class="product-card" data-category="glow">
                 <img src="/img/d02.png" alt="Produkt 3" loading="lazy">
+                <button><img src="/img/favorite.png" alt="Favorit" class="favorite"></button>
                 <h3>Produkt 8</h3>
                 <p>Minimalistisches Design</p>
                 <span>39.99€</span>
@@ -192,15 +200,61 @@
 
     <section id="contact">
         <h2>Kontakt</h2>
-        <form>
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="E-Mail" required>
-            <textarea placeholder="Deine Nachricht" required></textarea>
+        <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+            <input type="hidden" name="access_key" value="8bf5215a-f622-4ab9-84ca-7e799a722acd">
+
+            <input type="text" name="name" placeholder="Dein Name" class="contact-inputs" required>
+            <input type="email" name="email" placeholder="E-Mail" class="contact-inputs" required>
+            <textarea name="message" placeholder="Deine Nachricht" class="contact-inputs" required></textarea>
             <button type="submit">
                 <span class="hover">Senden</span>
             </button>
         </form>
+        <div id="loading" style="display:none;">Wird gesendet...</div>
+        <div id="success" style="display:none;">Danke! Deine Nachricht wurde gesendet.</div>
     </section>
+
+    
+    <div class="content-wrapper">
+        <div class="content">
+          <div class="rating-star">
+            <svg width="17" height="16" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="m9.067.43 1.99 4.031c.112.228.33.386.58.422l4.45.647a.772.772 0 0 1 .427 1.316l-3.22 3.138a.773.773 0 0 0-.222.683l.76 4.431a.772.772 0 0 1-1.12.813l-3.98-2.092a.773.773 0 0 0-.718 0l-3.98 2.092a.772.772 0 0 1-1.119-.813l.76-4.431a.77.77 0 0 0-.222-.683L.233 6.846A.772.772 0 0 1 .661 5.53l4.449-.647a.772.772 0 0 0 .58-.422L7.68.43a.774.774 0 0 1 1.387 0Z"
+                fill="#FC7614"
+              ></path>
+            </svg>
+          </div>
+      
+          <span class="title">Wie habe ich abgeschnitten?</span>
+      
+          <p class="text">
+            Ich freue mich auf jedes Feedback, was mir hilft, meine Angebote zu verbessern!
+            <br>Danke!
+          </p>
+      
+          <div class="rating stars">
+            <input id="rate-1" class="radio" type="radio" name="rating" value="1" data-value="1"/>
+            <label for="rate-1">1</label>
+            <input id="rate-2" class="radio" type="radio" name="rating" value="2" data-value="2"/>
+            <label for="rate-2">2</label>
+            <input id="rate-3" class="radio" type="radio" name="rating" value="3" data-value="3"/>
+            <label for="rate-3">3</label>
+            <input id="rate-4" class="radio" type="radio" name="rating" value="4" data-value="4"/>
+            <label for="rate-4">4</label>
+            <input id="rate-5" class="radio" type="radio" name="rating" value="5" data-value="5"/>
+            <label for="rate-5">5</label>
+          </div>
+          <p id="feedback"></p>
+      
+          <button class="button">Submit</button>
+          <p id="feedback-message" style="display: none; color: hsl(25, 97%, 53%); text-align: center; font-weight: bold; margin-top: 10px;">
+            Danke für dein Feedback!
+          </p>
+        </div>
+      </div>
+
+
 
     <footer>
         <div class="footer-container">
@@ -221,7 +275,7 @@
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Connect With Us</h3>
+                    <h3>Meine Socials</h3>
                     <ul>
                         <li><a href="#">Facebook</a></li>
                         <li><a href="#">Instagram</a></li>
@@ -233,10 +287,10 @@
                 <div class="footer-column">
                     <h3>Company Info</h3>
                     <ul>
-                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Kariere</a></li>
                         <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Versand</a></li>
+                        <li><a href="#">Rückgaben</a></li>
                     </ul>
                 </div>
             </div>
@@ -247,9 +301,8 @@
         <div class="popup-content" id="popup-content"></div>
     </div>
     
-    
 
-    <script src="script.js"></script>
+    <script src="/hauputseite/script.js"></script>
     <script src="business.js"></script>
 </body>
 </html>
@@ -266,8 +319,10 @@
     8. Popup Größe wählen bei zum Einkaufswagen hinzufügen
     9. Produkt Card auf der Seite schöner machen (siehe aboutyou.de)
     10. Favoriten hinzufügen (dass man die Produkte favorisieren kann)
+    11. Navbar fest machen
 
     -"Willkommen in der Welt von LUMIO" - Section Hintergrund gut so?
     -Farben für Kategorien zu krass?
     -About Lumio Section unnötig?
 --
+So ich möchte jetzt das du es entgültig schaffst das postion: sticky überall funktioniert bzw das ich mit dem Header also dem Nav (mit Links etc.) und dem img Logo komplett nach unten scrollen kann und es immer oben kleiben bleibt also egal wie weit ich nach unten scrolle ich sehe immer den beschriebenen Header Bereich 

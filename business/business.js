@@ -115,24 +115,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
-
-
-// Optional: Kleine Animation beim Laden der Seite
-document.addEventListener("DOMContentLoaded", () => {
-    const content = document.querySelector(".container");
-    content.style.opacity = "0";
-    content.style.transform = "translateY(20px)";
-    
-    setTimeout(() => {
-        content.style.transition = "0.8s";
-        content.style.opacity = "1";
-        content.style.transform = "translateY(0)";
-    }, 200);
-});
-
-
-
 // Dark Mode
 const themeButton = document.getElementById('theme-toggle');
 const body = document.body;
@@ -199,7 +181,7 @@ document.getElementById("glow").addEventListener("click", function() {
     document.getElementById("glow-section").scrollIntoView({ behavior: "smooth" });
 });
 
-
+// Filter-Funktion
 document.addEventListener("DOMContentLoaded", function() {
     const buttons = document.querySelectorAll(".filter-buttons button");
     const products = document.querySelectorAll(".product-card");
@@ -258,3 +240,95 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+// Kontaktformular Validierung
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (name.length < 2) {
+      alert("Bitte gib einen gültigen Namen ein.");
+      e.preventDefault();
+    } else if (!emailRegex.test(email)) {
+      alert("Bitte gib eine gültige E-Mail-Adresse ein.");
+      e.preventDefault();
+    } else if (message.length < 5) {
+      alert("Deine Nachricht ist zu kurz.");
+      e.preventDefault();
+    }
+  });
+
+
+const form = document.getElementById('contact-form');
+const loading = document.getElementById('loading');
+const success = document.getElementById('success');
+  
+form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    loading.style.display = 'block';
+  
+    const formData = new FormData(form);
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    });
+  
+    loading.style.display = 'none';
+  
+    if (response.ok) {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    } else {
+      alert("Etwas ist schiefgelaufen. Bitte versuche es später nochmal.");
+    }
+  });
+  
+
+  // Optional: Kleine Animation beim Laden der Seite
+document.addEventListener("DOMContentLoaded", () => {
+    const content = document.querySelector(".container");
+    content.style.opacity = "0";
+    content.style.transform = "translateY(20px)";
+    
+    setTimeout(() => {
+        content.style.transition = "0.8s";
+        content.style.opacity = "1";
+        content.style.transform = "translateY(0)";
+    }, 200);
+});
+
+
+
+
+const stars = document.querySelectorAll('.stars span');
+    const feedback = document.getElementById('feedback');
+
+    stars.forEach(star => {
+      star.addEventListener('click', async () => {
+        const rating = star.getAttribute('data-value');
+        feedback.textContent = `Du hast ${rating} Sterne gegeben!`;
+
+        const res = await fetch('/submit_rating', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ rating: Number(rating) })
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          console.log('Gespeichert:', data.message);
+        } else {
+          console.error('Fehler:', data.error);
+        }
+      });
+    });
+
+
+
+
+
+
